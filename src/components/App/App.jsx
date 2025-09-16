@@ -12,6 +12,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import "./App.css";
 
 function App() {
+  const [activeModal, setActiveModal] = useState("");
   const [isLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ function App() {
 
   const handleLoginSubmit = ({ email, password }) => {
     auth
-      .signin({email, password})
+      .signin({ email, password })
       .then((res) => {
         if (res && res.token) {
           localStorage.setItem("jwt", res.token);
@@ -42,7 +43,7 @@ function App() {
       .catch((err) => {
         console.error("Login failed:", err);
       });
-  };  
+  };
 
   handleRegisterSubmit = ({ name, email, password }) => {
     auth
@@ -102,7 +103,11 @@ function App() {
       <div className="app">
         <div className="app__content">
           <Header isLoggedIn={isLoggedIn} onLoginClick={handleLogin} />
-          <Main />
+          <SearchForm onSearch={handleSearch} />
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/saved" element={<SavedNews />} />
+          </Routes>
           <Footer />
         </div>
       </div>
