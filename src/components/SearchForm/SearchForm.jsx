@@ -29,14 +29,14 @@ function SearchForm() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className="search-form">
+      <form onSubmit={handleSubmit} className="search__form">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Enter topic"
         />
-        <button type="submit">Search</button>
+        <button type="submit" className="search__button">Search</button>
       </form>
       <ul>
         {articles.map((article, idx) => (

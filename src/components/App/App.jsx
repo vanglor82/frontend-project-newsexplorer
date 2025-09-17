@@ -8,10 +8,16 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import SearchForm from "../SearchForm/SearchForm";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import * as auth from "../../utils/auth";
 
 import "./App.css";
 
 function App() {
+  const handleSearch = (query) => {
+    // Example: log the search query
+    console.log("Searching for:", query);
+    // You can add your search logic here
+  };
   const [activeModal, setActiveModal] = useState("");
   const [isLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
@@ -45,7 +51,7 @@ function App() {
       });
   };
 
-  handleRegisterSubmit = ({ name, email, password }) => {
+  const handleRegisterSubmit = ({ name, email, password }) => {
     auth
       .signup({ name, email, password })
       .then(() => {
@@ -103,11 +109,7 @@ function App() {
       <div className="app">
         <div className="app__content">
           <Header isLoggedIn={isLoggedIn} onLoginClick={handleLogin} />
-          <SearchForm onSearch={handleSearch} />
-          <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/saved" element={<SavedNews />} />
-          </Routes>
+          <Main />
           <Footer />
         </div>
       </div>

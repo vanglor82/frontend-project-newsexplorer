@@ -1,9 +1,7 @@
 @font-face {
   font-family: "Roboto";
   src: url("../../vendor/fonts/roboto-400-regular.woff2") format("woff2"),
-       url("../../vendor/fonts/roboto-400-regular.woff") format("woff"),
-       url("../../vendor/fonts/roboto-slab-400-regular.woff2") format("woff2"),
-       url("../../vendor/fonts/roboto-slab-400-regular.woff") format("woff");
+       url("../../vendor/fonts/roboto-400-regular.woff") format("woff");
 }
 
 .app {

@@ -9,14 +9,14 @@ import headerLogo from "../../assets/NewsExplorer.png";
 function Header({ onLoginClick }) {
   return (
     <header className="header">
-        <Link to="/">
-          <img
-            src={headerLogo}
-            alt="News Explorer Logo"
-            className="header__logo"
+      <Link to="/">
+        <img
+          src={headerLogo}
+          alt="News Explorer Logo"
+          className="header__logo"
         />
       </Link>
-      <>
+      <div className="header__nav">
         <Link to="/">
           <button className="header__home-btn" type="button">
             Home
@@ -29,7 +29,7 @@ function Header({ onLoginClick }) {
         >
           Sign In
         </button>
-      </>
+      </div>
     </header>
   );
 }
