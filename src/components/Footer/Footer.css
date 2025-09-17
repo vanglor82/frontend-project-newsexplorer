@@ -19,7 +19,7 @@ footer {
   gap: 16px;
 }
 
-.footer__button-grp button{
+.footer__button-grp button {
   background: none;
   border: none;
   cursor: pointer;
@@ -33,4 +33,8 @@ footer {
 .footer__button-grp img {
   width: 24px;
   height: 24px;
-} 
+}
+
+.footer__button-grp a {
+  text-decoration: none;
+}

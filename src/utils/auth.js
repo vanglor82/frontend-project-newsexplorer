@@ -1,12 +1,13 @@
 /*global fetch*/
 
-const BASE_URL = process.env.NODE_ENV === "development"
-  ? "http://localhost:3000"
-  : "https://your-production-url.com";
+const BASE_URL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : "https://your-production-url.com";
 
-  function checkResponse(res) {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-  }
+function checkResponse(res) {
+  return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+}
 
 export const signup = ({ name, email, password }) => {
   return fetch(`${BASE_URL}/signup`, {
@@ -16,7 +17,7 @@ export const signup = ({ name, email, password }) => {
     },
     body: JSON.stringify({ name, email, password }),
   }).then(checkResponse);
-};  
+};
 
 export const signin = ({ email, password }) => {
   return fetch(`${BASE_URL}/signin`, {
@@ -33,9 +34,8 @@ export const checkToken = (token) => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ token }),
   }).then(checkResponse);
 };
 

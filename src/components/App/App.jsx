@@ -3,10 +3,14 @@ import { act, use, useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
 //component imports
+
 import Header from "../Header/Header";
 import Main from "../Main/Main";
+import About from "../About/About";
 import Footer from "../Footer/Footer";
 import SearchForm from "../SearchForm/SearchForm";
+import LoginModal from "../LoginModal/LoginModal";
+import RegisterModal from "../RegisterModal/RegisterModal";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import * as auth from "../../utils/auth";
 
@@ -14,22 +18,16 @@ import "./App.css";
 
 function App() {
   const handleSearch = (query) => {
-    // Example: log the search query
     console.log("Searching for:", query);
-    // You can add your search logic here
   };
   const [activeModal, setActiveModal] = useState("");
-  const [isLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    setActiveModal("login");
-  };
-
-  const handleRegister = () => {
-    setActiveModal("register");
-  };
+  const handleLogin = () => setActiveModal("login");
+  const handleRegister = () => setActiveModal("register");
+  const closeModals = () => setActiveModal("");
 
   const handleLoginSubmit = ({ email, password }) => {
     auth
@@ -44,6 +42,7 @@ function App() {
       .then((userData) => {
         setIsLoggedIn(true);
         setCurrentUser(userData);
+        closeModals();
         navigate("/");
       })
       .catch((err) => {
@@ -69,30 +68,26 @@ function App() {
     navigate("/");
   };
 
-  const closeModals = () => {
-    setActiveModal("");
-  };
+  // useEffect(() => {
+  //   const jwt = localStorage.getItem("jwt");
+  //   if (jwt) {
+  //     auth
+  //       .checkToken(jwt)
+  //       .then((res) => {
+  //         const user = res?.data || res;
+  //         if (user && user.id) {
+  //           setIsLoggedIn(true);
+  //           setCurrentUser(user);
+  //         }
+  //       })
+  //       .catch((err) => {
+  //         console.error("Token validation failed:", err);
+  //       });
+  //   }
+  // }, []);
 
   useEffect(() => {
-    const jwt = localStorage.getItem("jwt");
-    if (jwt) {
-      auth
-        .checkToken(jwt)
-        .then((res) => {
-          const user = res?.data || res;
-          if (user && user.id) {
-            setIsLoggedIn(true);
-            setCurrentUser(user);
-          }
-        })
-        .catch((err) => {
-          console.error("Token validation failed:", err);
-        });
-    }
-  }, []);
-
-  useEffect(() => {
-    if (activeModal) return;
+    if (!activeModal) return;
     const handleEscClose = (e) => {
       if (e.key === "Escape") {
         closeModals();
@@ -108,9 +103,26 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="app">
         <div className="app__content">
-          <Header isLoggedIn={isLoggedIn} onLoginClick={handleLogin} />
-          <Main />
+          <Header
+            isLoggedIn={isLoggedIn}
+            onLoginClick={handleLogin}
+            onRegisterClick={handleRegister}
+          />
+          <Main searchForm={<SearchForm />} />
+          <About />
           <Footer />
+          <LoginModal
+            isOpen={activeModal === "login"}
+            onClose={closeModals}
+            onLogin={handleLoginSubmit}
+            onSwitchToRegister={handleRegister}
+          />
+          <RegisterModal
+            isOpen={activeModal === "register"}
+            onClose={closeModals}
+            onRegister={handleRegisterSubmit}
+            onSwitchToLogin={handleLogin}
+          />
         </div>
       </div>
     </CurrentUserContext.Provider>
