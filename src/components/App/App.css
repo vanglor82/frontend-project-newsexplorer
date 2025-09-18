@@ -1,12 +1,12 @@
 @font-face {
   font-family: "Roboto";
   src: url("../../vendor/fonts/roboto-400-regular.woff2") format("woff2"),
-       url("../../vendor/fonts/roboto-400-regular.woff") format("woff");
+    url("../../vendor/fonts/roboto-400-regular.woff") format("woff");
 }
 
 .app {
   font-family: "Roboto", sans-serif;
-  background-color: #d1d2d6; 
+  background-color: #d1d2d6;
 }
 
 .app__content {

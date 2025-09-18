@@ -1,0 +1,141 @@
+.saved__articles {
+  background: #f5f6f7;
+  padding: 0;
+  margin: 0;
+  max-width: 1440px;
+  width: 100%;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.saved__articles-title {
+  color: #b6b6b6;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 0 104px;
+}
+
+.saved__articles-subtitle {
+  color: #222;
+  font-size: 32px;
+  font-weight: 700;
+  margin-left: 104px;
+}
+
+.saved__articles-keywords {
+  color: #222;
+  font-size: 16px;
+  margin: 0 0 0 104px;
+}
+
+.saved__articles-keyword {
+  font-weight: 700;
+}
+
+.saved__articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
+  grid-auto-rows: 576px;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 auto;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  width: 1440px;
+  height: 1292px;
+}
+
+.saved__articles-card {
+  width: 400px;
+  height: 576px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.saved__articles-image-wrapper {
+  position: relative;
+  width: 400px;
+  height: 272px;
+  overflow: hidden;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.saved__articles-image {
+  width: 400px;
+  height: 272px;
+  object-fit: cover;
+  display: block;
+}
+
+.saved__articles-keyword-tag {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: #eaf6f3;
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+
+.saved__articles-remove-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  border: none;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-image: url("../../assets/trash icon.png");
+}
+
+.saved__articles-remove-btn:hover {
+  background-image: url("../../assets/trash icon black.png");
+}
+
+.saved__articles-remove-icon {
+  display: none;
+}
+
+.saved__articles-card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 304px;
+  box-sizing: border-box;
+  gap: 8px;
+}
+
+.saved__articles-date {
+  color: #b6b6b6;
+  font-size: 14px;
+}
+
+.saved__articles-card-title {
+  color: #222;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.saved__articles-card-desc {
+  color: #444;
+  font-size: 15px;
+  margin: 0;
+}
+
+.saved__articles-source {
+  color: #b6b6b6;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 8px;
+}
