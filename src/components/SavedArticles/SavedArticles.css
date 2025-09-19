@@ -1,3 +1,22 @@
+@font-face {
+  font-family: "Roboto Slab", sans-serif;
+  src: url("../../vendor/fonts/roboto-slab-400-regular.woff2") format("woff2"),
+    url("../../vendor/fonts/roboto-slab-400-regular.woff") format("woff");
+}
+
+.saved__articles-cards {
+  background: #f5f6f7;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  border-radius: 0;
+  box-shadow: none;
+  max-height: 1292px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .saved__articles {
   background: #f5f6f7;
   padding: 0;
@@ -14,22 +33,26 @@
   font-size: 18px;
   font-weight: 500;
   margin: 0 0 0 104px;
+  padding-top: 40px;
 }
 
 .saved__articles-subtitle {
-  color: #222;
-  font-size: 32px;
-  font-weight: 700;
-  margin-left: 104px;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 40px;
+  color: #1a1b22;
+  margin: 28px 0 30px 104px;
 }
 
 .saved__articles-keywords {
-  color: #222;
-  font-size: 16px;
-  margin: 0 0 0 104px;
+  color: #1a1b22;
+  font-size: 18px;
+  margin: 0 0 56px 104px;
 }
 
 .saved__articles-keyword {
+  font-family: "Roboto Slab", sans-serif;
+  color: #1a1b22;
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -44,7 +67,9 @@
   border-radius: 0;
   padding: 0;
   width: 1440px;
-  height: 1292px;
+  max-height: calc(576px * 2 + 16px); 
+  overflow-y: auto;
+  height: auto;
 }
 
 .saved__articles-card {
@@ -116,26 +141,31 @@
 }
 
 .saved__articles-date {
-  color: #b6b6b6;
-  font-size: 14px;
+  color: #b6bcbf;
+  font-size: 18px;
+  padding-bottom: 15px;
+  margin: 0;
 }
 
 .saved__articles-card-title {
-  color: #222;
-  font-size: 20px;
-  font-weight: 700;
+  font-family: "Roboto Slab", sans-serif;
+  color: #1a1b22;
+  font-size: 26px;
   margin: 0;
+  padding-bottom: 16px;
 }
 
 .saved__articles-card-desc {
-  color: #444;
-  font-size: 15px;
+  color: #1a1b22;
+  font-size: 16px;
   margin: 0;
+  padding-bottom: 18px;
 }
 
 .saved__articles-source {
-  color: #b6b6b6;
-  font-size: 13px;
-  font-weight: 500;
-  margin-top: 8px;
+  color: #b6bcbf;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
 }

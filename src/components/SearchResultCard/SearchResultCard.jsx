@@ -24,10 +24,10 @@ function SearchResultCard({
   isSaved,
   isLoggedIn,
 }) {
-  const [liked, setLiked] = useState(isSaved);
+  const [liked, setLiked] = useState(isLoggedIn && isSaved);
   React.useEffect(() => {
-    setLiked(isSaved);
-  }, [isSaved]);
+    setLiked(isLoggedIn && isSaved);
+  }, [isSaved, isLoggedIn]);
   return (
     <a
       className="search__results-card"

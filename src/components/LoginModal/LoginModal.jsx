@@ -7,7 +7,7 @@ function LoginModal({ isOpen, onClose, onLogin, onSwitchToRegister }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const isFormValid = email && password;
+  const isFormValid = email && password && password.length >= 8;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,30 +37,30 @@ function LoginModal({ isOpen, onClose, onLogin, onSwitchToRegister }) {
         </div>
       }
     >
-        <label htmlFor="login-email" className="modal__label">
+      <label htmlFor="login-email" className="modal__label">
         Email
-      <input
-        className="modal__input"
-        type="email"
-        id="login-email"
-        placeholder="Enter email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-        </label>
-        <label htmlFor="login-password" className="modal__label">
+        <input
+          className="modal__input"
+          type="email"
+          id="login-email"
+          placeholder="Enter email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+      </label>
+      <label htmlFor="login-password" className="modal__label">
         Password
-      <input
-        className="modal__input"
-        type="password"
-        id="login-password"
-        placeholder="Enter password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-        </label>
+        <input
+          className="modal__input"
+          type="password"
+          id="login-password"
+          placeholder="Enter password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </label>
       <button
         className="modal__button"
         type="submit"

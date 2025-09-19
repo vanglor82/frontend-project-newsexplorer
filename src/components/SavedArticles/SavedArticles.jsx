@@ -8,7 +8,6 @@ function SavedArticles({ articles = [], onRemove }) {
   const currentUser = useContext(CurrentUserContext);
   const userName = currentUser?.name || "User";
   const articleCount = articles.length;
-  // Get unique keywords from articles
   const keywords = Array.from(new Set(articles.map((a) => a.keyword)));
   const topKeywords = keywords.slice(0, 2);
   const otherCount = keywords.length - topKeywords.length;
@@ -46,16 +45,18 @@ function SavedArticles({ articles = [], onRemove }) {
           </>
         )}
       </p>
-      <div className="saved__articles-grid">
-        {articles.map((article) => (
-          <SavedArticleCard
-            key={article.url || article.id}
-            article={article}
-            trashIcon={trashIcon}
-            trashIconBlack={trashIconBlack}
-            onRemove={() => onRemove(article.url)}
-          />
-        ))}
+      <div className="saved__articles-cards">
+        <div className="saved__articles-grid">
+          {articles.map((article) => (
+            <SavedArticleCard
+              key={article.url || article.id}
+              article={article}
+              trashIcon={trashIcon}
+              trashIconBlack={trashIconBlack}
+              onRemove={() => onRemove(article.url)}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

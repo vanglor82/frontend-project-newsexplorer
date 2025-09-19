@@ -51,6 +51,9 @@ function Header({ isLoggedIn, currentUser, onLoginClick, onLogout }) {
             }`}
           >
             Saved articles
+            {location.pathname === "/saved-articles" && (
+              <div className="header__nav-link-underline"></div>
+            )}
           </Link>
           <button
             className={`header__logout-btn${

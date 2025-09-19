@@ -37,10 +37,24 @@ function App() {
       return null;
     }
   });
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState(() => {
+    try {
+      const stored = localStorage.getItem("searchResults");
+      return stored ? JSON.parse(stored) : [];
+    } catch {
+      return [];
+    }
+  });
   const [visibleCount, setVisibleCount] = useState(3);
   const [isLoading, setIsLoading] = useState(false);
-  const [hasSearched, setHasSearched] = useState(false);
+  const [hasSearched, setHasSearched] = useState(() => {
+    try {
+      const stored = localStorage.getItem("searchResults");
+      return stored && JSON.parse(stored).length > 0;
+    } catch {
+      return false;
+    }
+  });
   const [savedArticles, setSavedArticles] = useState(() => {
     try {
       const stored = localStorage.getItem("savedArticles");
@@ -84,10 +98,13 @@ function App() {
   const handleLogout = () => {
     setIsLoggedIn(false);
     setCurrentUser(null);
+    setSearchResults([]);
+    setHasSearched(false);
     try {
       localStorage.setItem("isLoggedIn", "false");
       localStorage.removeItem("currentUser");
       localStorage.removeItem("jwt");
+      localStorage.removeItem("searchResults");
     } catch {}
     navigate("/");
   };
@@ -137,6 +154,12 @@ function App() {
       })
       .then((data) => {
         setSearchResults(data.articles || []);
+        try {
+          localStorage.setItem(
+            "searchResults",
+            JSON.stringify(data.articles || [])
+          );
+        } catch {}
         setIsLoading(false);
       })
       .catch((error) => {
@@ -177,6 +200,13 @@ function App() {
       localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
     } catch {}
   }, [savedArticles]);
+
+  // Persist search results to localStorage when changed (for manual changes)
+  useEffect(() => {
+    try {
+      localStorage.setItem("searchResults", JSON.stringify(searchResults));
+    } catch {}
+  }, [searchResults]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
