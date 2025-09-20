@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./ModalWithForm.css";
 import closeIcon from "../../assets/Close.png";
 
@@ -11,8 +11,13 @@ function ModalWithForm({
   footer,
 }) {
   return (
-    <div className={`modal__overlay${isOpen ? "" : " modal__overlay-hidden"}`}>
-      <div className={`modal${isOpen ? "" : " modal__hidden"}`}>
+    <>
+      <div
+        className={`modal__backdrop${
+          isOpen ? " modal__backdrop--visible" : ""
+        }`}
+      />
+      <div className={`modal${isOpen ? " modal__opened" : ""}`}>
         <div className="modal__content">
           <h2 className="modal__title">{titleText}</h2>
           <button
@@ -29,7 +34,7 @@ function ModalWithForm({
           {footer}
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

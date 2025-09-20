@@ -3,17 +3,43 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import orSignInImg from "../../assets/or Sign in.png";
 import "./RegisterModal.css";
 
-function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+function RegisterModal({
+  isOpen,
+  onClose,
+  onRegister,
+  onSwitchToLogin,
+  form,
+  setForm,
+}) {
+  const [emailError, setEmailError] = useState("");
+  const [usernameError, setUsernameError] = useState("");
 
-  const isFormValid = email && password && name;
+  const isFormValid = form.email && form.password && form.name;
 
+  // Simulate unavailable email error (replace with actual API error handling)
   const handleSubmit = (e) => {
     e.preventDefault();
+    let hasError = false;
+    if (form.email === "example@test.com") {
+      setEmailError("This email is not available");
+      hasError = true;
+    } else {
+      setEmailError("");
+    }
+    if (form.name === "username") {
+      setUsernameError("This username is not available");
+      hasError = true;
+    } else {
+      setUsernameError("");
+    }
+    if (hasError) return;
     if (isFormValid) {
-      onRegister({ email, password, name });
+      onRegister({
+        email: form.email,
+        password: form.password,
+        name: form.name,
+      });
+      setForm({ email: "", password: "", name: "" });
     }
   };
 
@@ -41,17 +67,16 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
       <label htmlFor="register-email" className="modal__label">
         Email
         <input
-          className="modal__input"
+          className={`modal__input${emailError ? " modal__input_error" : ""}`}
           type="email"
           id="register-email"
           placeholder="Enter email"
-          minLength="2"
-          maxLength="40"
-          autoComplete="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
           required
+          autoComplete="username"
         />
+        {emailError && <span className="modal__error">{emailError}</span>}
       </label>
       <label htmlFor="register-password" className="modal__label">
         Password
@@ -60,23 +85,25 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
           type="password"
           id="register-password"
           placeholder="Enter password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          autoComplete="new-password"
+          value={form.password}
+          onChange={(e) => setForm({ ...form, password: e.target.value })}
           required
+          autoComplete="new-password"
         />
       </label>
-      <label htmlFor="register-username" className="modal__label">
+      <label htmlFor="register-name" className="modal__label">
         Username
         <input
           className="modal__input"
           type="text"
-          id="register-username"
-          placeholder="Enter your username"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          id="register-name"
+          placeholder="Enter username"
+          value={form.name}
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
           required
+          autoComplete="name"
         />
+        {usernameError && <span className="modal__error">{usernameError}</span>}
       </label>
       <button
         className="modal__button"

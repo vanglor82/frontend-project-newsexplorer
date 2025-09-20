@@ -17,10 +17,12 @@ import SearchResults from "../SearchResults/SearchResults";
 import SearchResultCard from "../SearchResultCard/SearchResultCard";
 import { APIkey } from "../../utils/constants";
 import SavedArticles from "../SavedArticles/SavedArticles";
+import SuccessModal from "../SuccessModal/SuccessModal";
 
 import "./App.css";
 
 function App() {
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [activeModal, setActiveModal] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     try {
@@ -69,10 +71,17 @@ function App() {
   const handleRegister = () => setActiveModal("register");
   const closeModals = () => setActiveModal("");
 
+  const [loginForm, setLoginForm] = useState({ email: "", password: "" });
+  const [registerForm, setRegisterForm] = useState({
+    email: "",
+    password: "",
+    name: "",
+  });
+
   const handleLoginSubmit = ({ email, password }) => {
-    // Mock login: set state and close modal
     setIsLoggedIn(true);
     setCurrentUser({ name: email.split("@")[0], email });
+    setLoginForm({ email: "", password: "" });
     try {
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem(
@@ -85,14 +94,20 @@ function App() {
   };
 
   const handleRegisterSubmit = ({ name, email, password }) => {
-    auth
-      .signup({ name, email, password })
-      .then(() => {
-        handleLoginSubmit({ email, password });
-      })
-      .catch((err) => {
-        console.error("Registration failed:", err);
-      });
+    setShowSuccessModal(true);
+    setActiveModal("");
+    setRegisterForm({ email: "", password: "", name: "" });
+    // If using backend, call API and set modal on success
+    // auth
+    //   .signup({ name, email, password })
+    //   .then(() => {
+    //     setShowSuccessModal(true);
+    //     setActiveModal("");
+    //     setRegisterForm({ email: "", password: "", name: "" });
+    //   })
+    //   .catch((err) => {
+    //     console.error("Registration failed:", err);
+    //   });
   };
 
   const handleLogout = () => {
@@ -262,12 +277,24 @@ function App() {
                     onClose={closeModals}
                     onLogin={handleLoginSubmit}
                     onSwitchToRegister={handleRegister}
+                    form={loginForm}
+                    setForm={setLoginForm}
                   />
                   <RegisterModal
                     isOpen={activeModal === "register"}
                     onClose={closeModals}
                     onRegister={handleRegisterSubmit}
                     onSwitchToLogin={handleLogin}
+                    form={registerForm}
+                    setForm={setRegisterForm}
+                  />
+                  <SuccessModal
+                    isOpen={showSuccessModal}
+                    onClose={() => setShowSuccessModal(false)}
+                    onSignIn={() => {
+                      setShowSuccessModal(false);
+                      setActiveModal("login");
+                    }}
                   />
                 </>
               }
@@ -294,11 +321,15 @@ function App() {
                       onClose={closeModals}
                       onLogin={handleLoginSubmit}
                       onSwitchToRegister={handleRegister}
+                      form={loginForm}
+                      setForm={setLoginForm}
                     />
                     <RegisterModal
                       isOpen={activeModal === "register"}
                       onClose={closeModals}
                       onRegister={handleRegisterSubmit}
+                      form={registerForm}
+                      setForm={setRegisterForm}
                       onSwitchToLogin={handleLogin}
                     />
                   </>

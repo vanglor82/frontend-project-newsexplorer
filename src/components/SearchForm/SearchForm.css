@@ -1,3 +1,4 @@
+/* Search Form styles */
 .search__form {
   position: relative;
   width: 608px;
@@ -33,3 +34,40 @@
   align-items: center;
 }
 
+/* Responsive styles for Tablet */
+@media (max-width: 768px) {
+  .search__form {
+    width: 100vw;
+    padding: 0 8px;
+  }
+  .search__form input[type="text"] {
+    padding: 0 24px 0 16px;
+    height: 48px;
+    font-size: 15px;
+  }
+  .search__form button {
+    padding: 0 24px;
+    font-size: 15px;
+    height: 48px;
+    width: 120px;
+  }
+}
+
+/* Search styles for Mobile */
+@media (max-width: 320px) {
+  .search__form {
+    width: 100vw;
+    padding: 0 2px;
+  }
+  .search__form input[type="text"] {
+    padding: 0 8px 0 4px;
+    height: 32px;
+    font-size: 11px;
+  }
+  .search__form button {
+    padding: 0 8px;
+    font-size: 11px;
+    height: 32px;
+    width: 60px;
+  }
+}

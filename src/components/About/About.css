@@ -1,3 +1,4 @@
+/* About Component styles */
 .about {
   display: flex;
   flex-wrap: wrap;
@@ -47,4 +48,56 @@
   color: #1a1b22;
   margin: 0;
   padding: 0;
+}
+
+/* Responsive styles for Tablet */
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+    height: auto;
+    padding: 16px 8px;
+  }
+  .about__image-placeholder {
+    width: 160px;
+    height: 160px;
+    margin: 16px auto 0 auto;
+  }
+  .about__content {
+    width: 100vw;
+    margin: 16px 0 0 0;
+    padding: 0 8px;
+  }
+  .about__content h2 {
+    font-size: 24px;
+    padding-bottom: 12px;
+  }
+  .about__content p {
+    font-size: 15px;
+  }
+}
+
+/* Responsive styles for Mobile */
+@media (max-width: 320px) {
+  .about {
+    flex-direction: column;
+    height: auto;
+    padding: 4px 2px;
+  }
+  .about__image-placeholder {
+    width: 48px;
+    height: 48px;
+    margin: 4px auto 0 auto;
+  }
+  .about__content {
+    width: 100vw;
+    margin: 4px 0 0 0;
+    padding: 0 2px;
+  }
+  .about__content h2 {
+    font-size: 13px;
+    padding-bottom: 4px;
+  }
+  .about__content p {
+    font-size: 11px;
+  }
 }

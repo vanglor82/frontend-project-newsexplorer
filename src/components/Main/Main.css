@@ -1,3 +1,45 @@
+@media (max-width: 320px) {
+  .main {
+    width: 100vw;
+    min-height: 180px;
+    padding: 0 2px;
+  }
+  .main__overlay {
+    min-width: 100vw;
+    min-height: 180px;
+    padding: 0 2px;
+  }
+  .main__title {
+    font-size: 18px;
+    margin: 16px auto 8px auto;
+    max-width: 90vw;
+  }
+  .main__subtitle {
+    font-size: 11px;
+    margin-bottom: 12px;
+  }
+}
+@media (max-width: 768px) {
+  .main {
+    width: 100vw;
+    min-height: 320px;
+    padding: 0 8px;
+  }
+  .main__overlay {
+    min-width: 100vw;
+    min-height: 320px;
+    padding: 0 8px;
+  }
+  .main__title {
+    font-size: 32px;
+    margin: 48px auto 16px auto;
+    max-width: 90vw;
+  }
+  .main__subtitle {
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+}
 @font-face {
   font-family: "Roboto Slab", sans-serif;
   src: url(../../vendor/fonts/roboto-slab-400-regular.woff2) format("woff2"),
@@ -41,6 +83,3 @@
   margin: 0 0 88px 0;
   padding: 0;
 }
-
-
-

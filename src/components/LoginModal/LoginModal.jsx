@@ -3,17 +3,34 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import orSignUpImg from "../../assets/or Sign up.png";
 import "./LoginModal.css";
 
-function LoginModal({ isOpen, onClose, onLogin, onSwitchToRegister }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+function LoginModal({
+  isOpen,
+  onClose,
+  onLogin,
+  onSwitchToRegister,
+  form,
+  setForm,
+}) {
+  const [localError, setLocalError] = useState("");
 
-  const isFormValid = email && password && password.length >= 8;
+  // Simple email format validation
+  function validateEmailFormat(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  const isEmailValid = validateEmailFormat(form.email);
+  const isFormValid =
+    isEmailValid && form.password && form.password.length >= 8;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (isFormValid) {
-      onLogin({ email, password });
+    if (!form.email || !form.password) {
+      setLocalError("Please fill in all fields.");
+      return;
     }
+    setLocalError("");
+    onLogin({ email: form.email, password: form.password });
+    setForm({ email: "", password: "" });
   };
 
   return (
@@ -41,24 +58,25 @@ function LoginModal({ isOpen, onClose, onLogin, onSwitchToRegister }) {
         Email
         <input
           className="modal__input"
-          type="email"
           id="login-email"
-          placeholder="Enter email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
           required
+          autoComplete="username"
         />
+        {localError && <span className="modal__error">{localError}</span>}
       </label>
       <label htmlFor="login-password" className="modal__label">
         Password
         <input
           className="modal__input"
-          type="password"
           id="login-password"
-          placeholder="Enter password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          type="password"
+          value={form.password}
+          onChange={(e) => setForm({ ...form, password: e.target.value })}
           required
+          autoComplete="current-password"
         />
       </label>
       <button

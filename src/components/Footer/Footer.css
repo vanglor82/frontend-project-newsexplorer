@@ -1,3 +1,4 @@
+/* Footer styles */
 footer {
   display: flex;
   align-items: center;
@@ -38,3 +39,45 @@ footer {
 .footer__button-grp a {
   text-decoration: none;
 }
+
+/* Responsive styles for Tablet */
+@media (max-width: 768px) {
+  footer {
+    padding: 0 8px;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .footer__text {
+    font-size: 14px;
+  }
+  .footer__button-grp {
+    gap: 8px;
+  }
+  .footer__button-grp button {
+    font-size: 15px;
+  }
+}
+
+/* Responsive styles for Mobile */
+@media (max-width: 320px) {
+  footer {
+    padding: 0 2px;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+  .footer__text {
+    font-size: 11px;
+  }
+  .footer__button-grp {
+    gap: 2px;
+  }
+  .footer__button-grp button {
+    font-size: 11px;
+  }
+}
+
+
