@@ -1,51 +1,10 @@
-@media (max-width: 320px) {
-  .main {
-    width: 100vw;
-    min-height: 180px;
-    padding: 0 2px;
-  }
-  .main__overlay {
-    min-width: 100vw;
-    min-height: 180px;
-    padding: 0 2px;
-  }
-  .main__title {
-    font-size: 18px;
-    margin: 16px auto 8px auto;
-    max-width: 90vw;
-  }
-  .main__subtitle {
-    font-size: 11px;
-    margin-bottom: 12px;
-  }
-}
-@media (max-width: 768px) {
-  .main {
-    width: 100vw;
-    min-height: 320px;
-    padding: 0 8px;
-  }
-  .main__overlay {
-    min-width: 100vw;
-    min-height: 320px;
-    padding: 0 8px;
-  }
-  .main__title {
-    font-size: 32px;
-    margin: 48px auto 16px auto;
-    max-width: 90vw;
-  }
-  .main__subtitle {
-    font-size: 15px;
-    margin-bottom: 32px;
-  }
-}
 @font-face {
   font-family: "Roboto Slab", sans-serif;
   src: url(../../vendor/fonts/roboto-slab-400-regular.woff2) format("woff2"),
     url(../../vendor/fonts/roboto-slab-400-regular.woff) format("woff");
 }
 
+/* Main styles */
 .main {
   position: relative;
   width: 120%;
@@ -82,4 +41,56 @@
   color: #fff;
   margin: 0 0 88px 0;
   padding: 0;
+}
+
+/* Responsive styles for Tablet */
+@media (max-width: 768px) {
+  .main {
+    width: 768px;
+    min-height: 320px;
+  }
+
+  .main__overlay {
+    max-width: 768px;
+    min-height: 320px;
+  }
+
+  .main__title {
+    font-size: 36px;
+    width: 385px;
+    height: 80px;
+    margin: 104px auto 16px auto;
+  }
+
+  .main__subtitle {
+    display: flex;
+    width: 452px;
+    font-size: 18px;
+    margin: 0 auto 40px auto;
+    text-align: start;
+  }
+}
+
+/* Responsive styles for Mobile */
+@media (max-width: 320px) {
+  .main {
+    width: 320px;
+    min-height: 180px;
+    padding: 0;
+  }
+
+  .main__overlay {
+    min-width: 320px;
+    min-height: 180px;
+    padding: 0;
+  }
+
+  .main__title {
+    font-size: 18px;
+  }
+
+  .main__subtitle {
+    font-size: 11px;
+    margin-bottom: 12px;
+  }
 }

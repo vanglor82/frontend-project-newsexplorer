@@ -32,21 +32,17 @@ function Header({ isLoggedIn, currentUser, onLoginClick, onLogout }) {
         <div className="header__nav-logged-in">
           <Link
             to="/"
-            className={`header__nav-link${
+            className={`header__nav-link header__nav-link-home${
               location.pathname === "/" ? " header__nav-link_active" : ""
-            }${
-              location.pathname === "/saved-articles"
-                ? " header__nav-link_saved"
-                : ""
             }`}
           >
             Home
           </Link>
           <Link
             to="/saved-articles"
-            className={`header__nav-link${
+            className={`header__nav-link header__nav-link-saved${
               location.pathname === "/saved-articles"
-                ? " header__nav-link_saved"
+                ? " header__nav-link_active"
                 : ""
             }`}
           >

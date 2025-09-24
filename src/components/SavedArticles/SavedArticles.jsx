@@ -62,6 +62,16 @@ function SavedArticles({ articles = [], onRemove }) {
   );
 }
 
+function formatDate(dateString) {
+  if (!dateString) return "";
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
 function SavedArticleCard({ article, trashIcon, trashIconBlack, onRemove }) {
   const handleCardClick = (e) => {
     // Prevent click if remove button is clicked
@@ -92,7 +102,7 @@ function SavedArticleCard({ article, trashIcon, trashIconBlack, onRemove }) {
         </button>
       </div>
       <div className="saved__articles-card-content">
-        <span className="saved__articles-date">{article.date}</span>
+        <span className="saved__articles-date">{formatDate(article.date)}</span>
         <h4 className="saved__articles-card-title">{article.title}</h4>
         <p className="saved__articles-card-desc">{article.description}</p>
         <span className="saved__articles-source">{article.source}</span>

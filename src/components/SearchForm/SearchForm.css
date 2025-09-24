@@ -37,19 +37,21 @@
 /* Responsive styles for Tablet */
 @media (max-width: 768px) {
   .search__form {
-    width: 100vw;
-    padding: 0 8px;
-  }
+    width: 768px;
+  } 
+
   .search__form input[type="text"] {
-    padding: 0 24px 0 16px;
-    height: 48px;
-    font-size: 15px;
+    width: 452px;
+    height: 56px;
+    font-size: 16px;
+    margin-bottom: 48px;
   }
+
   .search__form button {
-    padding: 0 24px;
-    font-size: 15px;
-    height: 48px;
-    width: 120px;
+    font-size: 16px;
+    height: 56px;
+    width: 160px;
+    margin-right: 156px;
   }
 }
 

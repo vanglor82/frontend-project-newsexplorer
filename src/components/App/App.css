@@ -18,15 +18,13 @@
 /* Responsive styles for Tablet */
 @media (max-width: 768px) {
   .app__content {
-    max-width: 100vw;
-    padding: 0 8px;
+    max-width: 768px;
   }
 }
 
 /* Responsive styles for Mobile */
 @media (max-width: 320px) {
   .app__content {
-    max-width: 100vw;
-    padding: 0 2px;
+    max-width: 320px;
   }
 }

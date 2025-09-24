@@ -11,6 +11,8 @@
   border-radius: 16px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
   width: 430px;
+  min-width: 430px;
+  max-width: 430px;
   min-height: 380px;
   position: fixed;
   top: 50%;
@@ -128,10 +130,12 @@
 .modal__label[for="register-username"] {
   padding-bottom: 39px;
 }
+
 .modal__label[for="login-password"],
 .modal__label[for="register-password"] {
   padding-bottom: 31px;
 }
+
 .modal__label[for="login-email"],
 .modal__label[for="register-email"] {
   padding-bottom: 31px;
@@ -149,6 +153,7 @@
   background: rgba(0, 0, 0, 0.4);
   z-index: 999;
 }
+
 .modal__backdrop.modal__backdrop--visible {
   display: block;
 }
@@ -156,44 +161,17 @@
 /* Responsive styles for Tablet */
 @media (max-width: 768px) {
   .modal {
-    width: 430px;
-    min-width: 430px;
     max-width: 430px;
-    min-height: 380px;
     height: 380px;
     padding: 0 !important;
-  }
-  .modal > * {
-    padding: 0 !important;
-  }
-
-  .modal__title {
-    font-size: 18px;
-    margin: 16px 0 12px 0;
+    position: fixed;
+    margin: 0;
   }
 
-  .modal__form {
-    padding: 0 4px;
-  }
-
-  .modal__input {
-    font-size: 15px;
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .modal__button {
-    font-size: 16px;
-    padding: 10px 0;
-    width: 100%;
-    height: 48px;
-  }
-
-  .modal__footer {
-    width: 100%;
-    margin: 8px auto 16px auto;
-  }
+  .modal__label {
+    font-size: 12px;
+    width: 358px;
+  } 
 }
 
 /* Responsive styles for Mobile */

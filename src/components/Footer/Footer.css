@@ -43,20 +43,29 @@ footer {
 /* Responsive styles for Tablet */
 @media (max-width: 768px) {
   footer {
-    padding: 0 8px;
-    height: auto;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+    max-width: 768px;
+    height: 64px;
+    padding: 0 40px;
   }
   .footer__text {
-    font-size: 14px;
+    font-size: 16px;
   }
+  
+  .footer__home-btn, 
+  .footer__tripleten-btn {
+    margin-right: 40px;
+  }
+
+  .footer__github-btn {
+    margin-right: 24px;
+  }
+
   .footer__button-grp {
-    gap: 8px;
+    gap: 0;
   }
+
   .footer__button-grp button {
-    font-size: 15px;
+    font-size: 18px;
   }
 }
 
@@ -69,12 +78,15 @@ footer {
     align-items: flex-start;
     gap: 2px;
   }
+
   .footer__text {
     font-size: 11px;
   }
+
   .footer__button-grp {
     gap: 2px;
   }
+  
   .footer__button-grp button {
     font-size: 11px;
   }

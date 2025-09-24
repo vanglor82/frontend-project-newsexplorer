@@ -32,6 +32,7 @@
   color: #fff;
   padding: 0;
   margin: 10px 42px 0 0;
+  font-size: 18px;
   font-weight: 500;
   cursor: pointer;
 }
@@ -80,18 +81,24 @@
     cursor: pointer;
     transition: color 0.2s;
   }
+
   .header__nav-link_saved {
     color: #1a1b22;
     position: relative;
+    overflow: visible;
+    min-height: 32px;
+    padding-bottom: 12px;
   }
 
   .header__nav-link-underline {
-    width: 178px;
+    width: 100%;
     height: 0;
     border-bottom: 3px solid #1a1b22;
     position: absolute;
-    left: -30px;
-    bottom: -30px;
+    left: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 2;
   }
 
   .header__username {
@@ -124,11 +131,6 @@
     border: 1px solid #1a1b22;
   }
 
-  .header__logout-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #333;
-  }
-
   .header__logout-username {
     color: #fff;
     font-weight: 500;
@@ -144,17 +146,6 @@
     height: 24px;
     vertical-align: middle;
   }
-}
-
-/* Saved Articles page header text color override */
-.header.header_saved-articles .header__logo,
-.header.header_saved-articles .header__nav-link,
-.header.header_saved-articles .header__username,
-.header.header_saved-articles .header__logout-btn,
-.header.header_saved-articles .header__home-btn,
-.header.header_saved-articles .header__signin-btn {
-  color: #1a1b22;
-  border-color: #1a1b22;
 }
 
 .header__nav-link_active {
@@ -187,50 +178,128 @@
   background: #fff;
 }
 
+/* Saved Articles page header text color override */
+.header.header_saved-articles .header__logo,
+.header.header_saved-articles .header__nav-link,
+.header.header_saved-articles .header__username,
+.header.header_saved-articles .header__logout-btn,
+.header.header_saved-articles .header__home-btn,
+.header.header_saved-articles .header__signin-btn {
+  color: #1a1b22;
+  border-color: #1a1b22;
+}
+
 /* Responsive styles for Tablet */
 @media (max-width: 768px) {
   .header {
-    height: 64px;
-    padding: 0 8px;
-    margin-right: 0;
+    max-width: 768px;
+    height: 65px;
   }
+
   .header__logo {
-    margin-left: 8px;
-    margin-right: 8px;
+    margin-left: 40px;
+    height: 24px;
   }
-  .header__nav-logged-in {
-    gap: 24px;
-    margin-right: 8px;
-  }
-  .header__home-btn,
-  .header__signin-btn {
-    margin-right: 8px;
-    width: auto;
-    font-size: 16px;
+
+  .header__home-btn {
+    margin-right: 16px;
     height: 40px;
   }
-}
 
-/* Responsive styles for Mobile */
-@media (max-width: 320px) {
-  .header {
-    height: 48px;
-    padding: 0 2px;
-  }
-  .header__logo {
-    margin-left: 2px;
-    margin-right: 2px;
-    height: 18px;
-  }
-  .header__nav-logged-in {
-    gap: 8px;
-    margin-right: 2px;
-  }
-  .header__home-btn,
   .header__signin-btn {
-    margin-right: 2px;
-    width: auto;
-    font-size: 13px;
-    height: 32px;
+    gap: 16px;
+    margin-right: 40px;
+    width: 152px;
+    height: 40px;
+  }
+
+  .header__nav-link {
+    font-size: 16px;
+  }
+
+  .header__home-btn_active::after {
+    bottom: -8px;
+    left: -5px;
+    width: 60px;
+  }
+
+  .header__nav-link_active::after {
+    content: "";
+    left: 5px;
+    bottom: -20px;
+    width: 60px;
+  }
+
+  .header__nav-logged-in {
+    gap: 16px;
+    font-size: 16px;
+    height: 40px;
+    margin-right: 40px;
+  }
+
+  .header__logout-btn {
+    width: 100px;
+    height: 40px;
+  }
+
+  .header__logout-username {
+    font-size: 16px;
+  }
+
+  .header__nav-logged-in {
+    .header__nav-link-underline {
+      width: 160px;
+      left: 0;
+      bottom: -20px;
+    }
+
+    .header__logout-btn {
+      width: 100px;
+      height: 40px;
+    }
+
+    .header__logout-username {
+      font-size: 16px;
+    }
+
+    .header__nav-link-saved {
+      width: 160px;
+      height: 24px;
+      font-size: 16px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .header__nav-link-home {
+      width: 64px;
+      height: 24px;
+      font-size: 16px;
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+
+  /* Responsive styles for Mobile */
+  @media (max-width: 320px) {
+    .header {
+      height: 48px;
+      padding: 0 2px;
+    }
+    .header__logo {
+      margin-left: 2px;
+      margin-right: 2px;
+      height: 18px;
+    }
+    .header__nav-logged-in {
+      gap: 8px;
+      margin-right: 2px;
+    }
+    .header__home-btn,
+    .header__signin-btn {
+      margin-right: 2px;
+      width: auto;
+      font-size: 13px;
+      height: 32px;
+    }
   }
 }
