@@ -74,7 +74,6 @@ function formatDate(dateString) {
 
 function SavedArticleCard({ article, trashIcon, trashIconBlack, onRemove }) {
   const handleCardClick = (e) => {
-    // Prevent click if remove button is clicked
     if (e.target.closest(".saved__articles-remove-btn")) return;
     if (article.url) {
       window.open(article.url, "_blank", "noopener,noreferrer");

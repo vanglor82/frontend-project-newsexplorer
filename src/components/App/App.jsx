@@ -47,7 +47,9 @@ function App() {
       return [];
     }
   });
-  const [visibleCount, setVisibleCount] = useState(3);
+  // Show 4 cards at a time in mobile view, otherwise default to 3
+  const getInitialVisibleCount = () => (window.innerWidth <= 320 ? 4 : 3);
+  const [visibleCount, setVisibleCount] = useState(getInitialVisibleCount());
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(() => {
     try {
@@ -184,7 +186,11 @@ function App() {
   };
 
   const handleShowMore = () => {
-    setVisibleCount((prev) => prev + 3);
+    if (window.innerWidth <= 320) {
+      setVisibleCount((prev) => prev + 4);
+    } else {
+      setVisibleCount((prev) => prev + 3);
+    }
   };
 
   // Save article handler

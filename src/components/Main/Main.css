@@ -58,12 +58,10 @@
   .main__title {
     font-size: 36px;
     width: 385px;
-    height: 80px;
-    margin: 104px auto 16px auto;
+    margin: 86px auto 16px auto;
   }
 
   .main__subtitle {
-    display: flex;
     width: 452px;
     font-size: 18px;
     margin: 0 auto 40px auto;
@@ -74,23 +72,26 @@
 /* Responsive styles for Mobile */
 @media (max-width: 320px) {
   .main {
-    width: 320px;
-    min-height: 180px;
+    max-width: 320px;
+    height: 536px;
     padding: 0;
   }
 
   .main__overlay {
-    min-width: 320px;
-    min-height: 180px;
+    max-width: 320px;
+    height: 536px;
     padding: 0;
   }
 
   .main__title {
-    font-size: 18px;
+    max-width: 285px;
+    font-size: 36px;
   }
 
   .main__subtitle {
-    font-size: 11px;
-    margin-bottom: 12px;
+    max-width: 288px;
+    width: 100%;
+    font-size: 18px;
+    margin-bottom: 122px;
   }
 }

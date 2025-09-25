@@ -4,6 +4,7 @@
     url("../../vendor/fonts/roboto-400-regular.woff") format("woff");
 }
 
+/* App styles */
 .app {
   font-family: "Roboto", sans-serif;
   background-color: #d1d2d6;

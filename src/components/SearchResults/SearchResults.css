@@ -169,49 +169,81 @@
 /* Responsive styles for Mobile */
 @media (max-width: 320px) {
   .search__results {
-    padding: 4px 0 8px 0;
-    max-width: 100vw;
+    max-width: 320px;
+    padding: 0;
   }
 
   .search__results-title {
-    font-size: 11px;
-    margin: 8px 0 8px 2px;
+    font-size: 30px;
+    padding: 32px 16px 58px 16px;
+    margin: 0;
   }
 
   .search__results-cards {
-    grid-template-columns: 1fr;
-    grid-auto-rows: 80px;
-    gap: 4px;
-    padding: 0 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    max-width: 320px;
   }
 
   .search__results-card {
-    width: 100%;
-    height: 80px;
+    width: 288px;
+    min-height: 440px;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .search__results-card img {
+    height: 196px;
+    width: 288px;
+    object-fit: cover;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    display: block;
+  }
+
+  .search__results-card .search__results-bookmark {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .search__results-card-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
   }
 
   .search__results-show-more {
-    font-size: 11px;
-    width: 100%;
-    height: 32px;
+    width: 320px;
+    height: 56px;
+    margin: 0;
+    padding: 10px 0 0 0;
+    background: #fff;
+    border-radius: 80px;
+    color: #1a1b22;
+    font-size: 16px;
+    font-weight: 500;
   }
 
   .search__results-loading,
   .search__results-not-found {
-    height: 40px;
-  }
-
-  .search__results-not-found-img {
-    width: 16px;
-    height: 16px;
-  }
-
-  .search__results-not-found-title {
-    font-size: 8px;
-  }
-
-  .search__results-not-found-desc {
-    font-size: 8px;
-    width: 90vw;
+    width: 320px;
+    height: 250px;
+    margin: 0;
   }
 }

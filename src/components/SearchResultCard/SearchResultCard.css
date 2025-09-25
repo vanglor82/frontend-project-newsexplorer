@@ -76,6 +76,17 @@
     display: flex;
     flex-direction: column;
   }
+  .search__results-card_like-btn {
+    top: 2px;
+    right: 2px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .search__results-card_like-btn img {
+    width: 40px;
+    height: 40px;
+  }
 
   .search__results-card_image {
     width: 224px;
@@ -103,6 +114,8 @@
 
   .search__results-card_title {
     font-size: 22px;
+    max-height: 72px;
+    overflow: hidden;
   }
 
   .search__results-card_description {
@@ -122,34 +135,28 @@
 
 /* Responsive styles for Mobile */
 @media (max-width: 320px) {
-  .search__results-card,
+  .search__results-card {
+    width: 288px;
+    height: 440px;
+    display: flex;
+    flex-direction: column;
+  }
+
   .search__results-card_image {
-    width: 100vw;
-    max-width: 100vw;
-    height: 80px;
+    max-width: 288px;
     object-fit: cover;
   }
+
   .search__results-card_content {
-    padding: 4px;
-    min-height: 40px;
+    max-width: 288px;
+    height: 244px;
+    padding: 16px;
   }
-  .search__results-card_date {
-    font-size: 8px;
-  }
+
   .search__results-card_title {
-    font-size: 11px;
-  }
-  .search__results-card_description {
-    font-size: 8px;
-    margin: 2px 0 2px 0;
-  }
-  .search__results-card_source {
-    font-size: 8px;
-  }
-  .search__results-card_like-btn {
-    top: 2px;
-    right: 2px;
-    width: 16px;
-    height: 16px;
+    max-width: 256px;
+    height: 48px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

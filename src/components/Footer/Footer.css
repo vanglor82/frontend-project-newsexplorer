@@ -50,8 +50,8 @@ footer {
   .footer__text {
     font-size: 16px;
   }
-  
-  .footer__home-btn, 
+
+  .footer__home-btn,
   .footer__tripleten-btn {
     margin-right: 40px;
   }
@@ -72,24 +72,47 @@ footer {
 /* Responsive styles for Mobile */
 @media (max-width: 320px) {
   footer {
-    padding: 0 2px;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 320px;
     height: auto;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-  }
-
-  .footer__text {
-    font-size: 11px;
+    padding: 20px 16px 22px 16px;
+    margin: 0;
   }
 
   .footer__button-grp {
-    gap: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 38px;
   }
-  
-  .footer__button-grp button {
-    font-size: 11px;
+
+  .footer__button-grp-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 74px;
+  }
+
+  /* Make the second column (GitHub/LinkedIn) a row in mobile view */
+  .footer__button-grp-col:nth-child(2) {
+    flex-direction: row;
+    align-items: center;
+    height: auto;
+  }
+
+  .footer__home-btn,
+  .footer__tripleten-btn {
+    width: 80px;
+    text-align: left;
+  }
+
+  .footer__github-btn,
+  .footer__linkedin-btn {
+    width: 32px;
+    align-self: flex-end;
   }
 }
-
-

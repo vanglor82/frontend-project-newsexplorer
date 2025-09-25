@@ -103,25 +103,26 @@
 /* Responsive styles for Mobile */
 @media (max-width: 320px) {
   .about {
-    flex-direction: column;
-    height: auto;
-    padding: 4px 2px;
+    max-width: 320px;
+    height: 732px;
   }
+
   .about__image-placeholder {
-    width: 48px;
-    height: 48px;
-    margin: 4px auto 0 auto;
+    width: 272px;
+    height: 272px;
+    margin: 32px 24px 24px 24px;
   }
+
   .about__content {
-    width: 100vw;
-    margin: 4px 0 0 0;
-    padding: 0 2px;
+    width: 288px;
+    margin: 0 16px 128px 16px;
   }
+
   .about__content h2 {
-    font-size: 13px;
-    padding-bottom: 4px;
+    font-size: 30px;
   }
+
   .about__content p {
-    font-size: 11px;
+    font-size: 18px;
   }
 }

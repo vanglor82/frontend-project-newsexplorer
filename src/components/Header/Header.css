@@ -192,7 +192,7 @@
 /* Responsive styles for Tablet */
 @media (max-width: 768px) {
   .header {
-    max-width: 768px;
+    min-width: 768px;
     height: 65px;
   }
 
@@ -282,24 +282,42 @@
   /* Responsive styles for Mobile */
   @media (max-width: 320px) {
     .header {
-      height: 48px;
-      padding: 0 2px;
+      min-width: 320px;
+      height: 56px;
     }
+
     .header__logo {
-      margin-left: 2px;
-      margin-right: 2px;
       height: 18px;
+      margin: 0 0 0 16px;
     }
-    .header__nav-logged-in {
-      gap: 8px;
-      margin-right: 2px;
+
+    .header__home-btn {
+      display: none !important;
     }
-    .header__home-btn,
+
     .header__signin-btn {
-      margin-right: 2px;
-      width: auto;
-      font-size: 13px;
+      background: none;
+      border: none;
+      color: transparent;
+      width: 32px;
       height: 32px;
+      padding: 0;
+      margin: 0;
+      position: relative;
+    }
+
+    .header__signin-btn::before {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 24px;
+      background-image: url("../../assets/menu.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      right: 16px;
+      top: 4px;
     }
   }
 }
