@@ -10,6 +10,7 @@ function ModalWithForm({
   onSubmit,
   footer,
 }) {
+  console.log('ModalWithForm isOpen:', isOpen);
   return (
     <>
       <div

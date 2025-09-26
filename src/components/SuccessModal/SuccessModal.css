@@ -44,7 +44,7 @@
 }
 
 /* Responsive styles for Tablet */
-@media (max-width: 768px) {
+@media screen and (max-width: 1023px) {
   .modal__success {
     width: 95vw;
     min-width: 0;
@@ -61,7 +61,7 @@
 }
 
 /* Responsive styles for Mobile */
-@media (max-width: 320px) {
+@media screen and (max-width: 420px) {
   .modal__success {
     width: 98vw;
     min-width: 0;

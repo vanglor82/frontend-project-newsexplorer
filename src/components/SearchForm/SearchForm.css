@@ -35,7 +35,7 @@
 }
 
 /* Responsive styles for Tablet */
-@media (max-width: 768px) {
+@media screen and (max-width: 1023px) {
   .search__form {
     width: 768px;
   }
@@ -56,7 +56,7 @@
 }
 
 /* Search styles for Mobile */
-@media (max-width: 320px) {
+@media screen and (max-width: 420px) {
   .search__form {
     width: 288px;
   }

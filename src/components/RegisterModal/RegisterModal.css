@@ -27,7 +27,7 @@
 }
 
 /* Responsive styles for Tablet */
-@media (max-width: 768px) {
+@media screen and (max-width: 1023px) {
   .modal__error_above {
     font-size: 11px;
     left: 8px;
@@ -60,7 +60,7 @@
 }
 
 /* Responsive styles for Mobile */
-@media (max-width: 320px) {
+@media screen and (max-width: 420px) {
   .modal__error_above {
     font-size: 9px;
     left: 2px;
@@ -84,7 +84,7 @@
     max-width: 240px;
     padding: 4px;
   }
-  
+
   .modal__button {
     font-size: 11px;
     padding: 4px 0;

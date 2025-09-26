@@ -49,7 +49,7 @@ function SearchResultCard({
           }
           if (isLoggedIn) setLiked((l) => !l);
         }}
-        aria-label={liked ? "Unlike" : "Like"}
+        id="search__results-card_like-btn"
         disabled={!isLoggedIn}
         style={!isLoggedIn ? { opacity: 0.5, cursor: "not-allowed" } : {}}
       >

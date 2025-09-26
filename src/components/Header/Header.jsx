@@ -9,8 +9,16 @@ import headerLogoBlack from "../../assets/NewsExplorer Black.png";
 import logoutImg from "../../assets/logout.png";
 import logoutImgBlack from "../../assets/logout black.png";
 
-function Header({ isLoggedIn, currentUser, onLoginClick, onLogout }) {
+function Header({
+  isLoggedIn,
+  currentUser,
+  onLoginClick,
+  onLogout,
+  onMenuClick,
+}) {
   const location = useLocation();
+  // Detect mobile view (320px)
+  const isMobile = window.innerWidth <= 320;
   return (
     <header
       className={`header${
@@ -59,7 +67,7 @@ function Header({ isLoggedIn, currentUser, onLoginClick, onLogout }) {
             }`}
             type="button"
             onClick={onLogout}
-            aria-label="Logout"
+            id="header__logout-btn"
           >
             <span className="header__logout-username">
               {currentUser?.name || "User"}
@@ -87,13 +95,23 @@ function Header({ isLoggedIn, currentUser, onLoginClick, onLogout }) {
               Home
             </button>
           </Link>
-          <button
-            className="header__signin-btn"
-            type="button"
-            onClick={onLoginClick}
-          >
-            Sign In
-          </button>
+          {isMobile ? (
+            <button
+              className="header__menu-btn"
+              type="button"
+              onClick={onMenuClick}
+            >
+              {/* You can add a menu icon here if desired */}
+            </button>
+          ) : (
+            <button
+              className="header__signin-btn"
+              type="button"
+              onClick={onLoginClick}
+            >
+              Sign In
+            </button>
+          )}
         </div>
       )}
     </header>

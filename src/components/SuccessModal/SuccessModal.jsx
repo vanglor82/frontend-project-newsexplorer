@@ -9,7 +9,6 @@ function SuccessModal({ isOpen, onClose, onSignIn }) {
         <button
           className="modal__close-btn"
           onClick={onClose}
-          aria-label="Close"
         />
         <h2 className="modal__success-title">
           Registration successfully completed!

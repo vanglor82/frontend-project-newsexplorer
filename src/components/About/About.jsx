@@ -6,7 +6,7 @@ function About() {
   return (
     <section className="about">
       <div className="about__image-placeholder">
-        <span role="img" aria-label="placeholder" className="about__icon">
+        <span role="img" className="about__icon">
           <img src={SmileyFasce} alt="Smiley Face" />
         </span>
         <p>

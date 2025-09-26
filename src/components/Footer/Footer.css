@@ -41,9 +41,9 @@ footer {
 }
 
 /* Responsive styles for Tablet */
-@media (max-width: 768px) {
+@media screen and (max-width: 1023px) {
   footer {
-    max-width: 768px;
+    max-width: 1023px;
     height: 64px;
     padding: 0 40px;
   }
@@ -70,7 +70,7 @@ footer {
 }
 
 /* Responsive styles for Mobile */
-@media (max-width: 320px) {
+@media screen and (max-width: 420px) {
   footer {
     flex-direction: column-reverse;
     align-items: center;

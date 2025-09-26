@@ -116,7 +116,7 @@
 }
 
 /* Responsive styles for Tablet */
-@media (max-width: 768px) {
+@media screen and (max-width: 1023px) {
   .search__results {
     min-width: 768px;
   }
@@ -167,7 +167,7 @@
 }
 
 /* Responsive styles for Mobile */
-@media (max-width: 320px) {
+@media screen and (max-width: 420px) {
   .search__results {
     max-width: 320px;
     padding: 0;

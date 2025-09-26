@@ -190,7 +190,7 @@
 }
 
 /* Responsive styles for Tablet */
-@media (max-width: 768px) {
+@media screen and (max-width: 1023px) {
   .header {
     min-width: 768px;
     height: 65px;
@@ -280,7 +280,7 @@
   }
 
   /* Responsive styles for Mobile */
-  @media (max-width: 320px) {
+  @media screen and (max-width: 420px) {
     .header {
       min-width: 320px;
       height: 56px;

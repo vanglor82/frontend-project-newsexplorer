@@ -172,7 +172,7 @@
 }
 
 /* Responsive styles for Tablet */
-@media (max-width: 768px) {
+@media screen and (max-width: 1023px) {
   .saved__articles {
     min-width: 768px;
   }
@@ -276,7 +276,7 @@
 }
 
 /* Responsive styles for Mobile */
-@media (max-width: 320px) {
+@media screen and (max-width: 420px) {
   .saved__articles-cards,
   .saved__articles {
     max-width: 100vw;

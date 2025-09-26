@@ -3,7 +3,6 @@ import { act, use, useEffect, useState } from "react";
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 
 //component imports
-
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import About from "../About/About";
@@ -19,9 +18,12 @@ import { APIkey } from "../../utils/constants";
 import SavedArticles from "../SavedArticles/SavedArticles";
 import SuccessModal from "../SuccessModal/SuccessModal";
 
+import HeaderMenuModal from "../HeaderMenuModal/HeaderMenuModal";
+
 import "./App.css";
 
 function App() {
+  const [isHeaderMenuOpen, setIsHeaderMenuOpen] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [activeModal, setActiveModal] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
@@ -69,9 +71,31 @@ function App() {
   });
   const navigate = useNavigate();
 
-  const handleLogin = () => setActiveModal("login");
-  const handleRegister = () => setActiveModal("register");
-  const closeModals = () => setActiveModal("");
+  // Ensure only one modal is ever active
+  const closeModals = () => {
+    setActiveModal("");
+    setShowSuccessModal(false);
+    setIsHeaderMenuOpen(false);
+  };
+
+  const handleLogin = () => {
+    closeModals();
+    setActiveModal("login");
+  };
+
+  const handleRegister = () => {
+    closeModals();
+    setActiveModal("register");
+  };
+
+  const handleHeaderMenuOpen = () => {
+    closeModals();
+    setIsHeaderMenuOpen(true);
+  };
+
+  const handleHeaderMenuClose = () => {
+    setIsHeaderMenuOpen(false);
+  };
 
   const [loginForm, setLoginForm] = useState({ email: "", password: "" });
   const [registerForm, setRegisterForm] = useState({
@@ -99,17 +123,6 @@ function App() {
     setShowSuccessModal(true);
     setActiveModal("");
     setRegisterForm({ email: "", password: "", name: "" });
-    // If using backend, call API and set modal on success
-    // auth
-    //   .signup({ name, email, password })
-    //   .then(() => {
-    //     setShowSuccessModal(true);
-    //     setActiveModal("");
-    //     setRegisterForm({ email: "", password: "", name: "" });
-    //   })
-    //   .catch((err) => {
-    //     console.error("Registration failed:", err);
-    //   });
   };
 
   const handleLogout = () => {
@@ -125,24 +138,6 @@ function App() {
     } catch {}
     navigate("/");
   };
-
-  // useEffect(() => {
-  //   const jwt = localStorage.getItem("jwt");
-  //   if (jwt) {
-  //     auth
-  //       .checkToken(jwt)
-  //       .then((res) => {
-  //         const user = res?.data || res;
-  //         if (user && user.id) {
-  //           setIsLoggedIn(true);
-  //           setCurrentUser(user);
-  //         }
-  //       })
-  //       .catch((err) => {
-  //         console.error("Token validation failed:", err);
-  //       });
-  //   }
-  // }, []);
 
   useEffect(() => {
     if (!activeModal) return;
@@ -244,6 +239,7 @@ function App() {
                     onLoginClick={handleLogin}
                     onLogout={handleLogout}
                     onRegisterClick={handleRegister}
+                    onMenuClick={handleHeaderMenuOpen}
                   />
                   <Main searchForm={<SearchForm onSearch={handleSearch} />} />
                   {hasSearched && (
@@ -299,6 +295,18 @@ function App() {
                     onClose={() => setShowSuccessModal(false)}
                     onSignIn={() => {
                       setShowSuccessModal(false);
+                      setActiveModal("login");
+                    }}
+                  />
+                  <HeaderMenuModal
+                    isOpen={isHeaderMenuOpen}
+                    onClose={handleHeaderMenuClose}
+                    onHome={() => {
+                      handleHeaderMenuClose();
+                      navigate("/");
+                    }}
+                    onSignIn={() => {
+                      handleHeaderMenuClose();
                       setActiveModal("login");
                     }}
                   />

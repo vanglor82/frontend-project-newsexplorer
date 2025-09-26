@@ -69,7 +69,7 @@
 }
 
 /* Responsive styles for Tablet */
-@media (max-width: 768px) {
+@media screen and (max-width: 1023px) {
   .search__results-card {
     width: 224px;
     height: 420px;
@@ -134,7 +134,7 @@
 }
 
 /* Responsive styles for Mobile */
-@media (max-width: 320px) {
+@media screen and (max-width: 420px) {
   .search__results-card {
     width: 288px;
     height: 440px;

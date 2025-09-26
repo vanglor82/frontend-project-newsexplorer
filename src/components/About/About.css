@@ -51,7 +51,7 @@
 }
 
 /* Responsive styles for Tablet */
-@media (max-width: 768px) {
+@media screen and (max-width: 1023px) {
   .about {
     display: flex;
     flex-direction: row;
@@ -101,7 +101,7 @@
 }
 
 /* Responsive styles for Mobile */
-@media (max-width: 320px) {
+@media screen and (max-width: 420px) {
   .about {
     max-width: 320px;
     height: 732px;
