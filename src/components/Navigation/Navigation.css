@@ -1,0 +1,225 @@
+/* Navigation.css */
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navigation__home-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 0;
+  margin: 10px 42px 0 0;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.navigation__home-btn_active {
+  position: relative;
+}
+
+.navigation__signin-btn {
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 100px;
+  padding: 0;
+  margin: 10px 104px 0 0;
+  font-weight: 500;
+  cursor: pointer;
+  height: 48px;
+  width: 176px;
+  cursor: pointer;
+}
+
+/* Logged-in navigation layout */
+.navigation__logged-in {
+  display: flex;
+  align-items: center;
+  margin-right: 104px;
+  gap: 64px;
+
+  .navigation__link {
+    background: none;
+    border: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .navigation__link-underline {
+    width: 160px;
+    border-bottom: 3px solid #1a1b22;
+    position: absolute;
+    left: -20px;
+    bottom: -30px;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .navigation__username {
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0 8px;
+  }
+
+  .navigation__logout-btn {
+    background: none;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 100px;
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+    font-size: 18px;
+    height: 48px;
+    width: 112px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 8px;
+    cursor: pointer;
+  }
+
+  .navigation__logout-username {
+    color: #fff;
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  .navigation__logout-btn_saved {
+    color: #1a1b22;
+    border: 1px solid #1a1b22;
+  }
+
+  .navigation__logout-btn_saved .navigation__logout-username {
+    color: #1a1b22;
+  }
+
+  .navigation__logout-img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.navigation__link_active {
+  position: relative;
+}
+
+.navigation__link_active::after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  right: 0;
+  bottom: -30px;
+  width: 70px;
+  height: 3px;
+  background: #fff;
+}
+
+/* Saved Articles page header text color override */
+.header_saved-articles .navigation__link,
+.header_saved-articles .navigation__link_home,
+.header_saved-articles .navigation__link-saved {
+  color: #1a1b22 !important;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Responsive styles for Tablet */
+@media screen and (max-width: 1279px) {
+  .navigation {
+    max-width: 768px;
+  }
+
+  .navigation__link-home {
+    margin-right: 16px;
+    font-size: 16px !important;
+  }
+
+  .navigation__signin-btn {
+    margin-right: 40px;
+    width: 152px;
+    height: 40px;
+  }
+
+  .navigation__link {
+    font-size: 16px;
+  }
+
+  .navigation__link-saved {
+    margin-right: 16px;
+    font-size: 16px !important;
+  }
+
+  .navigation__link_active {
+    position: relative;
+  }
+  .navigation__link_active::after {
+    bottom: -23px !important;
+  }
+
+  .navigation__link-underline {
+    bottom: -23px !important;
+  }
+
+  .navigation__logged-in {
+    gap: 16px;
+    font-size: 16px !important;
+    height: 40px;
+    margin-right: 40px;
+  }
+
+  .navigation__logout-btn_saved {
+    border-color: #d1d2d6 !important;
+    height: 40px;
+    width: 100px;
+  }
+
+  .navigation__logout-username {
+    font-size: 16px !important;
+  }
+}
+
+/* Responsive styles for Mobile */
+@media screen and (max-width: 768px) {
+  .navigation {
+    max-width: 320px;
+  }
+
+  .navigation__home-btn {
+    display: none !important;
+  }
+
+  .navigation__signin-btn {
+    display: none !important;
+  }
+
+  .navigation__menu-btn {
+    display: block !important;
+    background: none;
+    border: none;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    margin: 0 16px 0 0;
+    position: relative;
+    cursor: pointer;
+    background-image: url("../../assets/menu.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .header_saved-articles .navigation__menu-btn,
+  .navigation__menu-btn_saved {
+    background-image: url("../../assets/menublack.png");
+  }
+}
