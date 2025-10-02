@@ -1,7 +1,15 @@
-import React, { useState } from "react";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import orSignUpImg from "../../assets/or Sign up.png";
+// react imports
+import { useState } from "react";
+
+// css imports
 import "./LoginModal.css";
+
+// component imports
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
+
+// assets imports
+import orSignUpImg from "../../assets/or Sign up.png";
+
 
 function LoginModal({
   isOpen,
@@ -13,7 +21,6 @@ function LoginModal({
 }) {
   const [localError, setLocalError] = useState("");
 
-  // Simple email format validation
   function validateEmailFormat(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
@@ -22,10 +29,24 @@ function LoginModal({
   const isFormValid =
     isEmailValid && form.password && form.password.length >= 8;
 
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setForm({ ...form, email: value });
+    if (value && !validateEmailFormat(value)) {
+      setLocalError("Invalid email address");
+    } else {
+      setLocalError("");
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!form.email || !form.password) {
       setLocalError("Please fill in all fields.");
+      return;
+    }
+    if (!validateEmailFormat(form.email)) {
+      setLocalError("Invalid email address");
       return;
     }
     setLocalError("");
@@ -61,11 +82,13 @@ function LoginModal({
           id="login-email"
           type="email"
           value={form.email}
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
+          onChange={handleEmailChange}
           required
           autoComplete="username"
         />
-        {localError && <span className="modal__error">{localError}</span>}
+        {localError && (
+          <span className="modal__error-login-email">{localError}</span>
+        )}
       </label>
       <label htmlFor="login-password" className="modal__label">
         Password

@@ -75,7 +75,7 @@
     border: none;
     color: #fff;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
     text-decoration: none;
     padding: 0;
     cursor: pointer;
@@ -91,12 +91,11 @@
   }
 
   .header__nav-link-underline {
-    width: 100%;
-    height: 0;
+    width: 160px;
     border-bottom: 3px solid #1a1b22;
     position: absolute;
-    left: 0;
-    bottom: 0;
+    left: -20px;
+    bottom: -30px;
     pointer-events: none;
     z-index: 2;
   }
@@ -104,7 +103,7 @@
   .header__username {
     color: #fff;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
     padding: 0 8px;
   }
 
@@ -126,15 +125,15 @@
     cursor: pointer;
   }
 
-  .header__logout-btn_saved {
-    color: #1a1b22;
-    border: 1px solid #1a1b22;
-  }
-
   .header__logout-username {
     color: #fff;
     font-weight: 500;
     font-size: 18px;
+  }
+
+  .header__logout-btn_saved {
+    color: #1a1b22;
+    border: 1px solid #1a1b22;
   }
 
   .header__logout-btn_saved .header__logout-username {
@@ -167,17 +166,6 @@
   position: relative;
 }
 
-.header__home-btn_active::after {
-  content: "";
-  position: absolute;
-  left: -10px;
-  right: 0;
-  bottom: -30px;
-  width: 70px;
-  height: 3px;
-  background: #fff;
-}
-
 /* Saved Articles page header text color override */
 .header.header_saved-articles .header__logo,
 .header.header_saved-articles .header__nav-link,
@@ -190,9 +178,9 @@
 }
 
 /* Responsive styles for Tablet */
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1279px) {
   .header {
-    min-width: 768px;
+    max-width: 768px;
     height: 65px;
   }
 
@@ -217,19 +205,6 @@
     font-size: 16px;
   }
 
-  .header__home-btn_active::after {
-    bottom: -8px;
-    left: -5px;
-    width: 60px;
-  }
-
-  .header__nav-link_active::after {
-    content: "";
-    left: 5px;
-    bottom: -20px;
-    width: 60px;
-  }
-
   .header__nav-logged-in {
     gap: 16px;
     font-size: 16px;
@@ -237,52 +212,20 @@
     margin-right: 40px;
   }
 
-  .header__logout-btn {
-    width: 100px;
+  .header__logout-btn_saved {
+    border-color: #d1d2d6 !important;
     height: 40px;
+    width: 100px;
   }
 
   .header__logout-username {
     font-size: 16px;
   }
 
-  .header__nav-logged-in {
-    .header__nav-link-underline {
-      width: 160px;
-      left: 0;
-      bottom: -20px;
-    }
-
-    .header__logout-btn {
-      width: 100px;
-      height: 40px;
-    }
-
-    .header__logout-username {
-      font-size: 16px;
-    }
-
-    .header__nav-link-saved {
-      width: 160px;
-      height: 24px;
-      font-size: 16px;
-      font-weight: 500;
-      text-align: center;
-    }
-
-    .header__nav-link-home {
-      width: 64px;
-      height: 24px;
-      font-size: 16px;
-      font-weight: 500;
-      text-align: center;
-    }
-  }
-
   /* Responsive styles for Mobile */
-  @media screen and (max-width: 420px) {
+  @media screen and (max-width: 768px) {
     .header {
-      min-width: 320px;
+      max-width: 320px;
       height: 56px;
     }
 
@@ -296,28 +239,26 @@
     }
 
     .header__signin-btn {
+      display: none !important;
+    }
+
+    .header__menu-btn {
+      display: block !important;
       background: none;
       border: none;
-      color: transparent;
       width: 32px;
       height: 32px;
       padding: 0;
-      margin: 0;
+      margin: 0 16px 0 0;
       position: relative;
-    }
-
-    .header__signin-btn::before {
-      content: "";
-      display: block;
-      width: 24px;
-      height: 24px;
+      cursor: pointer;
       background-image: url("../../assets/menu.png");
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
-      position: absolute;
-      right: 16px;
-      top: 4px;
+    }
+    .header_saved-articles .header__menu-btn {
+      background-image: url("../../assets/menublack.png");
     }
   }
 }

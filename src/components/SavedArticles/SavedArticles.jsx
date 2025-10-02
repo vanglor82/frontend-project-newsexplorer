@@ -1,6 +1,13 @@
-import React, { useContext } from "react";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+// react imports
+import { useContext } from "react";
+
+// css imports
 import "./SavedArticles.css";
+
+// context imports
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+
+// assets imports
 import trashIcon from "../../assets/trash icon.png";
 import trashIconBlack from "../../assets/trash icon black.png";
 
@@ -72,7 +79,7 @@ function formatDate(dateString) {
   });
 }
 
-function SavedArticleCard({ article, trashIcon, trashIconBlack, onRemove }) {
+function SavedArticleCard({ article, onRemove }) {
   const handleCardClick = (e) => {
     if (e.target.closest(".saved__articles-remove-btn")) return;
     if (article.url) {
@@ -97,6 +104,7 @@ function SavedArticleCard({ article, trashIcon, trashIconBlack, onRemove }) {
           title="Remove from saved"
           onClick={onRemove}
         >
+          <span className="saved__articles-remove-tooltip">Remove from saved</span>
           <span className="saved__articles-remove-icon" />
         </button>
       </div>

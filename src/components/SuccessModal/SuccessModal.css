@@ -44,34 +44,38 @@
 }
 
 /* Responsive styles for Tablet */
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1279px) {
   .modal__success {
     width: 95vw;
     min-width: 0;
     max-width: 400px;
     padding: 16px;
   }
+
   .modal__success-title {
     font-size: 18px;
     margin-bottom: 12px;
   }
+
   .modal__success-signin {
     font-size: 16px;
   }
 }
 
 /* Responsive styles for Mobile */
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 768px) {
   .modal__success {
     width: 98vw;
     min-width: 0;
     max-width: 240px;
     padding: 4px;
   }
+
   .modal__success-title {
     font-size: 13px;
     margin-bottom: 4px;
   }
+
   .modal__success-signin {
     font-size: 11px;
   }

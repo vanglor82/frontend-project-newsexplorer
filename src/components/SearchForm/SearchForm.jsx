@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+// react imports
+import { useState } from "react";
 
+// css imports
 import "./SearchForm.css";
-import { APIkey } from "../../utils/constants";
 
 function SearchForm({ onSearch }) {
   const [query, setQuery] = useState("");

@@ -1,5 +1,7 @@
-import React from "react";
+// css imports
 import "./About.css";
+
+// assets imports
 import SmileyFasce from "../../assets/SmileyFace.png";
 
 function About() {

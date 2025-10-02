@@ -1,10 +1,13 @@
-import React from "react";
+// css imports
 import "./SearchResults.css";
+
+// assets imports
 import NotFoundImg from "../../assets/not-found_v1.png";
+
+// component imports
 import Preloader from "../Preloader/Preloader";
 
 function SearchResults({ children, onShowMore, isLoading, hasSearched }) {
-  // nothingFound only true if a search was performed and results are empty
   const nothingFound =
     hasSearched && !isLoading && (!children || children.length === 0);
   return (

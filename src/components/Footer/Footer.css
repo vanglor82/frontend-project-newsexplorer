@@ -17,18 +17,18 @@ footer {
 
 .footer__button-grp {
   display: flex;
-  gap: 16px;
+  flex-direction: row;
+  align-items: center;
 }
 
 .footer__button-grp button {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
-  display: flex;
-  align-items: center;
   font-size: 18px;
   color: #1a1b22;
+  padding: 0;
+  margin: 0;
 }
 
 .footer__button-grp img {
@@ -40,15 +40,30 @@ footer {
   text-decoration: none;
 }
 
+.footer__home-btn {
+  margin-right: 40px !important;
+}
+
+.footer__tripleten-btn {
+  margin-right: 40px !important;
+}
+
+.footer__github-btn {
+  margin-right: 24px !important;
+}
+
 /* Responsive styles for Tablet */
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1279px) {
   footer {
-    max-width: 1023px;
+    max-width: 768px;
     height: 64px;
-    padding: 0 40px;
+    padding: 0;
+    margin: 0;
   }
+
   .footer__text {
     font-size: 16px;
+    margin-left: 40px;
   }
 
   .footer__home-btn,
@@ -56,12 +71,8 @@ footer {
     margin-right: 40px;
   }
 
-  .footer__github-btn {
-    margin-right: 24px;
-  }
-
   .footer__button-grp {
-    gap: 0;
+    margin-right: 40px;
   }
 
   .footer__button-grp button {
@@ -70,14 +81,15 @@ footer {
 }
 
 /* Responsive styles for Mobile */
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 768px) {
   footer {
     flex-direction: column-reverse;
-    align-items: center;
     justify-content: flex-start;
     max-width: 320px;
-    height: auto;
-    padding: 20px 16px 22px 16px;
+    height: 176px;
+  }
+
+  .footer__text {
     margin: 0;
   }
 
@@ -86,8 +98,8 @@ footer {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    width: 100%;
-    margin-bottom: 38px;
+    margin: 20px 16px 38px 16px;
+    width: 288px;
   }
 
   .footer__button-grp-col {

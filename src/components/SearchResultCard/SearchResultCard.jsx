@@ -1,7 +1,13 @@
+// react imports
 import React, { useState } from "react";
+
+// css imports
+import "./SearchResultCard.css";
+
+// assets imports
 import LikeFlag from "../../assets/Like Flag.png";
 import LikedFlag from "../../assets/Liked Flag.png";
-import "./SearchResultCard.css";
+
 
 function formatDate(dateString) {
   if (!dateString) return "";

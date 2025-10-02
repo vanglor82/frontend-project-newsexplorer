@@ -12,19 +12,20 @@
 
 .app__content {
   max-width: 1440px;
+  min-height: 100vh;
   margin: 0 auto;
   padding: 0;
 }
 
 /* Responsive styles for Tablet */
-@media (max-width: 768px) {
+@media (max-width: 1279px) {
   .app__content {
     max-width: 768px;
   }
 }
 
 /* Responsive styles for Mobile */
-@media (max-width: 320px) {
+@media (max-width: 768px) {
   .app__content {
     max-width: 320px;
   }

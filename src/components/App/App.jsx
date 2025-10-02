@@ -1,8 +1,11 @@
-//react imports
-import { act, use, useEffect, useState } from "react";
+// react imports
+import { useEffect, useState } from "react";
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 
-//component imports
+// css imports
+import "./App.css";
+
+// component imports
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import About from "../About/About";
@@ -11,16 +14,12 @@ import SearchForm from "../SearchForm/SearchForm";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import * as auth from "../../utils/auth";
 import SearchResults from "../SearchResults/SearchResults";
 import SearchResultCard from "../SearchResultCard/SearchResultCard";
 import { APIkey } from "../../utils/constants";
 import SavedArticles from "../SavedArticles/SavedArticles";
 import SuccessModal from "../SuccessModal/SuccessModal";
-
 import HeaderMenuModal from "../HeaderMenuModal/HeaderMenuModal";
-
-import "./App.css";
 
 function App() {
   const [isHeaderMenuOpen, setIsHeaderMenuOpen] = useState(false);
@@ -71,7 +70,6 @@ function App() {
   });
   const navigate = useNavigate();
 
-  // Ensure only one modal is ever active
   const closeModals = () => {
     setActiveModal("");
     setShowSuccessModal(false);
@@ -240,6 +238,7 @@ function App() {
                     onLogout={handleLogout}
                     onRegisterClick={handleRegister}
                     onMenuClick={handleHeaderMenuOpen}
+                    hideMenuBtn={!!activeModal}
                   />
                   <Main searchForm={<SearchForm onSearch={handleSearch} />} />
                   {hasSearched && (
@@ -309,6 +308,15 @@ function App() {
                       handleHeaderMenuClose();
                       setActiveModal("login");
                     }}
+                    onSavedArticles={() => {
+                      handleHeaderMenuClose();
+                      navigate("/saved-articles");
+                    }}
+                    onLogout={() => {
+                      handleHeaderMenuClose();
+                      handleLogout();
+                    }}
+                    isLoggedIn={isLoggedIn}
                   />
                 </>
               }
@@ -324,6 +332,8 @@ function App() {
                       onLoginClick={handleLogin}
                       onLogout={handleLogout}
                       onRegisterClick={handleRegister}
+                      onMenuClick={handleHeaderMenuOpen}
+                      hideMenuBtn={!!activeModal}
                     />
                     <SavedArticles
                       articles={savedArticles}
@@ -345,6 +355,27 @@ function App() {
                       form={registerForm}
                       setForm={setRegisterForm}
                       onSwitchToLogin={handleLogin}
+                    />
+                    <HeaderMenuModal
+                      isOpen={isHeaderMenuOpen}
+                      onClose={handleHeaderMenuClose}
+                      onHome={() => {
+                        handleHeaderMenuClose();
+                        navigate("/");
+                      }}
+                      onSignIn={() => {
+                        handleHeaderMenuClose();
+                        setActiveModal("login");
+                      }}
+                      onSavedArticles={() => {
+                        handleHeaderMenuClose();
+                        navigate("/saved-articles");
+                      }}
+                      onLogout={() => {
+                        handleHeaderMenuClose();
+                        handleLogout();
+                      }}
+                      isLoggedIn={isLoggedIn}
                     />
                   </>
                 ) : (

@@ -1,4 +1,24 @@
-/* HeaderMenuModal.css */
+/* HeaderMenuModal styles */
+.header__menu-modal_top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 320px;
+  height: 56px;
+  padding: 0;
+  border-bottom: 1px solid #333;
+}
+
+.header__menu-logo {
+  position: relative;
+  top: 16px;
+  left: 16px;
+  width: 120px;
+  margin-bottom: 25px;
+}
+
+/* HeaderMenuModal not logged in */
 .header__menu-modal_overlay {
   position: fixed;
   top: 0;
@@ -7,7 +27,6 @@
   height: 100vh;
   background: rgba(0, 0, 0, 0.6);
   display: flex;
-  align-items: flex-start;
   justify-content: center;
   z-index: 1000;
 }
@@ -15,14 +34,16 @@
 .header__menu-modal {
   display: flex;
   align-items: center;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
   background: #1a1b22;
   margin-top: 0;
-  padding: 0 16px 0 16px;
-  display: flex;
+  padding: 0;
   flex-direction: column;
-  gap: 22px;
   width: 320px;
-  height: 230px;
+  min-height: 230px;
+  max-height: 260px;
 }
 
 .header__menu-home_btn {
@@ -49,26 +70,7 @@
   height: 56px;
 }
 
-/* Top row: logo and close button */
-.header__menu-modal_top {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 320px;
-  height: 56px;
-  padding: 0;
-  border-bottom: 1px solid #333;
-}
-
-.header__menu-logo {
-  position: relative;
-  top: 16px;
-  left: 16px;
-  width: 120px;
-  margin-bottom: 25px;
-}
-
+/* HeaderMenuModal logged in */
 .header__menu-close_btn {
   position: relative;
   top: 16px;
@@ -78,4 +80,31 @@
   cursor: pointer;
   padding: 0;
   margin-bottom: 25px;
+}
+
+.header__menu-logout_btn {
+  width: 288px;
+  height: 56px;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 100px;
+  font-weight: 500;
+  cursor: pointer;
+  background: none;
+  border: 1px solid #fff;
+  margin-bottom: 24px;
+}
+
+.header__menu-saved_btn {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  width: 288px;
+  height: 56px;
+  margin-bottom: 24px;
 }

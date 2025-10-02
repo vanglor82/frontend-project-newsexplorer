@@ -1,9 +1,11 @@
-//react imports
+// react imports
 import { Link, useLocation } from "react-router-dom";
-import { useContext } from "react";
+import { useState, useEffect } from "react";
 
-//component imports
+// css imports
 import "./Header.css";
+
+// assets imports
 import headerLogo from "../../assets/NewsExplorer.png";
 import headerLogoBlack from "../../assets/NewsExplorer Black.png";
 import logoutImg from "../../assets/logout.png";
@@ -15,10 +17,19 @@ function Header({
   onLoginClick,
   onLogout,
   onMenuClick,
+  hideMenuBtn,
 }) {
   const location = useLocation();
-  // Detect mobile view (320px)
-  const isMobile = window.innerWidth <= 320;
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <header
       className={`header${
@@ -36,7 +47,27 @@ function Header({
           className="header__logo"
         />
       </Link>
-      {isLoggedIn ? (
+      {isMobile ? (
+        <div className="header__nav">
+          <Link to="/">
+            <button
+              className={`header__home-btn${
+                location.pathname === "/" ? " header__home-btn_active" : ""
+              }`}
+              type="button"
+            >
+              Home
+            </button>
+          </Link>
+          {!hideMenuBtn && (
+            <button
+              className="header__menu-btn"
+              type="button"
+              onClick={onMenuClick}
+            ></button>
+          )}
+        </div>
+      ) : isLoggedIn ? (
         <div className="header__nav-logged-in">
           <Link
             to="/"
@@ -95,23 +126,13 @@ function Header({
               Home
             </button>
           </Link>
-          {isMobile ? (
-            <button
-              className="header__menu-btn"
-              type="button"
-              onClick={onMenuClick}
-            >
-              {/* You can add a menu icon here if desired */}
-            </button>
-          ) : (
-            <button
-              className="header__signin-btn"
-              type="button"
-              onClick={onLoginClick}
-            >
-              Sign In
-            </button>
-          )}
+          <button
+            className="header__signin-btn"
+            type="button"
+            onClick={onLoginClick}
+          >
+            Sign In
+          </button>
         </div>
       )}
     </header>

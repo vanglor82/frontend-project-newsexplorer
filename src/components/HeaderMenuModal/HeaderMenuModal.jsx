@@ -1,10 +1,22 @@
-import React from "react";
+// css imports
 import "./HeaderMenuModal.css";
+
+// react imports
 import { Link } from "react-router-dom";
+
+// assets imports
 import logo from "../../assets/NewsExplorer.png";
 import mobileclose from "../../assets/Mobile Close.png";
 
-function HeaderMenuModal({ isOpen, onClose, onHome, onSignIn }) {
+function HeaderMenuModal({
+  isOpen,
+  onClose,
+  onHome,
+  onSignIn,
+  onSavedArticles,
+  onLogout,
+  isLoggedIn,
+}) {
   if (!isOpen) return null;
   return (
     <div className="header__menu-modal_overlay">
@@ -24,9 +36,23 @@ function HeaderMenuModal({ isOpen, onClose, onHome, onSignIn }) {
         <button className="header__menu-home_btn" onClick={onHome}>
           Home
         </button>
-        <button className="header__menu-signin_btn" onClick={onSignIn}>
-          Sign In
-        </button>
+        {isLoggedIn ? (
+          <>
+            <button
+              className="header__menu-saved_btn"
+              onClick={onSavedArticles}
+            >
+              Saved Articles
+            </button>
+            <button className="header__menu-logout_btn" onClick={onLogout}>
+              Log Out
+            </button>
+          </>
+        ) : (
+          <button className="header__menu-signin_btn" onClick={onSignIn}>
+            Sign In
+          </button>
+        )}
       </div>
     </div>
   );

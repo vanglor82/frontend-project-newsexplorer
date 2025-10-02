@@ -1,4 +1,4 @@
-import React from "react";
+// css imports
 import "./Main.css";
 
 function Main({ searchForm }) {

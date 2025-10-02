@@ -1,7 +1,12 @@
+// react imports
+import { Link } from "react-router-dom";
+
+// css imports
 import "./Footer.css";
+
+// assets imports
 import githubLogo from "../../assets/Github.png";
 import linkedinLogo from "../../assets/LinkedIn.png";
-import { Link } from "react-router-dom";
 
 function Footer() {
   return (

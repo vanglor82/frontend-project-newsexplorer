@@ -1,7 +1,15 @@
-import React, { useState } from "react";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import orSignInImg from "../../assets/or Sign in.png";
+// react imports
+import { useState } from "react";
+
+// css imports
 import "./RegisterModal.css";
+
+// component imports
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
+
+// assets imports
+import orSignInImg from "../../assets/or Sign in.png";
+
 
 function RegisterModal({
   isOpen,
@@ -16,7 +24,7 @@ function RegisterModal({
 
   const isFormValid = form.email && form.password && form.name;
 
-  // Simulate unavailable email error (replace with actual API error handling)
+  // Simulate unavailable email error (replace with actual API error handling in the future)
   const handleSubmit = (e) => {
     e.preventDefault();
     let hasError = false;

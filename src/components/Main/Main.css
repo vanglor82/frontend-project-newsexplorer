@@ -7,22 +7,20 @@
 /* Main styles */
 .main {
   position: relative;
-  width: 120%;
   max-width: 1440px;
   min-height: 420px;
+  width: 100%;
   background: url("../../assets/MainPicture.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   margin-top: 0;
 }
 
 .main__overlay {
   background: rgba(0, 0, 0, 0.5);
-  text-align: center;
-  padding: 0;
-  margin: 0;
-  min-width: 1440px;
+  width: 1440px;
   min-height: 578px;
 }
 
@@ -37,16 +35,16 @@
 }
 
 .main__subtitle {
+  width: 608px;
   font-size: 18px;
   color: #fff;
-  margin: 0 0 88px 0;
-  padding: 0;
+  margin: 0 auto 88px auto;
 }
 
 /* Responsive styles for Tablet */
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1279px) {
   .main {
-    width: 768px;
+    max-width: 768px;
     min-height: 320px;
   }
 
@@ -70,17 +68,15 @@
 }
 
 /* Responsive styles for Mobile */
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 768px) {
   .main {
     max-width: 320px;
     height: 536px;
-    padding: 0;
   }
 
   .main__overlay {
     max-width: 320px;
     height: 536px;
-    padding: 0;
   }
 
   .main__title {
