@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "Roboto Slab", sans-serif;
+  font-family: "Roboto Slab";
   src: url("../../vendor/fonts/roboto-slab-400-regular.woff2") format("woff2"),
     url("../../vendor/fonts/roboto-slab-400-regular.woff") format("woff");
 }
@@ -42,7 +42,8 @@
 }
 
 .search__results-card_title {
-  font-family: "Roboto Slab", sans-serif;
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
   font-size: 26px;
   color: #1a1b22;
   -webkit-line-clamp: 2;
@@ -82,7 +83,7 @@
   background: none;
   border: none;
   padding: 0;
-  cursor: pointer;
+  cursor: url("../../assets/Cursor.svg"), pointer;
 }
 
 /* Responsive styles for Tablet */
@@ -157,7 +158,7 @@
 }
 
 /* Responsive styles for Mobile */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .search__results {
     max-width: 320px;
     padding: 0;

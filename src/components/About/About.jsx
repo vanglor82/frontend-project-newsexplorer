@@ -2,7 +2,7 @@
 import "./About.css";
 
 // assets imports
-import SmileyFasce from "../../assets/SmileyFace.png";
+import SmileyFasce from "../../assets/SmileyFaceIcon.svg";
 
 function About() {
   return (

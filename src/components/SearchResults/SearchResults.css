@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "Roboto Slab", sans-serif;
+  font-family: "Roboto Slab";
   src: url(../../vendor/fonts/roboto-slab-400-regular.woff2) format("woff2"),
     url(../../vendor/fonts/roboto-slab-400-regular.woff) format("woff");
 }
@@ -13,10 +13,10 @@
 }
 
 .search__results-title {
-  font-family: "Roboto Slab", sans-serif;
+  font-family: "Roboto Slab", serif;
   font-size: 40px;
   padding: 0;
-  margin: 80px 0 64px 104px;
+  margin: 40px 0 64px 104px;
   color: #1a1b22;
 }
 
@@ -42,7 +42,7 @@
 
 .search__results-show-more {
   display: block;
-  margin: 0 auto;
+  margin: 64px auto 0 auto;
   padding: 12px 32px;
   font-size: 18px;
   font-weight: 500;
@@ -52,7 +52,7 @@
   height: 64px;
   color: #1a1b22;
   background: #fff;
-  cursor: pointer;
+  cursor: url("../../assets/Cursor.svg"), pointer;
 }
 
 .search__results-show-more:hover {
@@ -100,8 +100,9 @@
 }
 
 .search__results-not-found-title {
-  font-family: "Roboto Slab", sans-serif;
+  font-family: "Roboto Slab", serif;
   font-size: 26px;
+  font-weight: 400;
   color: #1a1b22;
   margin-bottom: 16px;
   text-align: center;
@@ -167,7 +168,7 @@
 }
 
 /* Responsive styles for Mobile */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .search__results {
     max-width: 320px;
     min-width: 0 !important;
@@ -204,7 +205,6 @@
     width: 288px;
   }
 
-
   .search__results-card-content {
     padding: 16px;
     gap: 8px;
@@ -213,7 +213,7 @@
 
   .search__results-show-more {
     width: 320px;
-    height: 56px;  
+    height: 56px;
     padding: 10px 0 0 0;
     background: #fff;
     border-radius: 80px;

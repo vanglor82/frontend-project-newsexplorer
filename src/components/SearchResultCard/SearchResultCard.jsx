@@ -5,9 +5,8 @@ import React, { useState } from "react";
 import "./SearchResultCard.css";
 
 // assets imports
-import LikeFlag from "../../assets/Like Flag.png";
-import LikedFlag from "../../assets/Liked Flag.png";
-
+import LikeFlag from "../../assets/LikeFlag.svg";
+import LikedFlag from "../../assets/LikedFlag.svg";
 
 function formatDate(dateString) {
   if (!dateString) return "";

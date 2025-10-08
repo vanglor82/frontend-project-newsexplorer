@@ -8,8 +8,7 @@ import "./RegisterModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 // assets imports
-import orSignInImg from "../../assets/or Sign in.png";
-
+import orSignInImg from "../../assets/or Sign in.svg";
 
 function RegisterModal({
   isOpen,

@@ -5,8 +5,8 @@ import "./HeaderMenuModal.css";
 import { Link } from "react-router-dom";
 
 // assets imports
-import logo from "../../assets/NewsExplorer.png";
-import mobileclose from "../../assets/Mobile Close.png";
+import logo from "../../assets/NewsExplorerWhite.svg";
+import mobileclose from "../../assets/MobileCloseIcon.svg";
 
 function HeaderMenuModal({
   isOpen,

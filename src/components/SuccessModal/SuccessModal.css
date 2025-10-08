@@ -63,7 +63,7 @@
 }
 
 /* Responsive styles for Mobile */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .modal__success {
     width: 98vw;
     min-width: 0;

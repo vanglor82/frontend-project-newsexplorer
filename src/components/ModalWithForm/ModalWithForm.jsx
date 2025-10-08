@@ -2,7 +2,7 @@
 import "./ModalWithForm.css";
 
 // assets imports
-import closeIcon from "../../assets/Close.png";
+import closeIcon from "../../assets/CloseIcon.svg";
 
 function ModalWithForm({
   isOpen,
@@ -21,13 +21,13 @@ function ModalWithForm({
       />
       <div className={`modal ${isOpen ? " modal__opened" : ""}`}>
         <button
-            onClick={onClose}
-            type="button"
-            className="modal__close-btn"
-            title="Close"
-          >
-            <img src={closeIcon} className="modal__close-icon" alt="Close" />
-          </button>
+          onClick={onClose}
+          type="button"
+          className="modal__close-btn"
+          title="Close"
+        >
+          <img src={closeIcon} className="modal__close-icon" alt="Close" />
+        </button>
         <div className="modal__content">
           <h2 className="modal__title">{titleText}</h2>
           <form onSubmit={onSubmit} className="modal__form">

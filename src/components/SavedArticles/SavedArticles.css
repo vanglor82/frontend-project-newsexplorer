@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "Roboto Slab", sans-serif;
+  font-family: "Roboto Slab";
   src: url("../../vendor/fonts/roboto-slab-400-regular.woff2") format("woff2"),
     url("../../vendor/fonts/roboto-slab-400-regular.woff") format("woff");
 }
@@ -31,7 +31,8 @@
 }
 
 .saved__articles-subtitle {
-  font-family: "Roboto Slab", sans-serif;
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
   font-size: 40px;
   color: #1a1b22;
   margin: 28px 0 30px 104px;
@@ -44,7 +45,9 @@
 }
 
 .saved__articles-keyword {
-  font-family: "Roboto Slab", sans-serif;
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  font-size: 18px;
   color: #1a1b22;
   font-size: 18px;
   font-weight: 700;
@@ -109,9 +112,9 @@
   border-radius: 5px;
   width: 40px;
   height: 40px;
-  cursor: pointer;
   padding: 0;
-  background-image: url("../../assets/trash icon.png");
+  cursor: url("../../assets/Cursor.svg"), pointer;
+  background-image: url("../../assets/TrashWhiteIcon.svg");
 }
 
 .saved__articles-remove-tooltip {
@@ -138,7 +141,7 @@
 }
 
 .saved__articles-remove-btn:hover {
-  background-image: url("../../assets/trash icon black.png");
+  background-image: url("../../assets/TrashBlackIcon.svg");
 }
 
 .saved__articles-card-content {
@@ -158,8 +161,9 @@
 }
 
 .saved__articles-card-title {
-  font-family: "Roboto Slab", sans-serif;
+  font-family: "Roboto Slab", serif;
   color: #1a1b22;
+  font-weight: 400;
   -webkit-line-clamp: 2;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -259,7 +263,7 @@
 }
 
 /* Responsive styles for Mobile */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .saved__articles {
     max-width: 320px;
   }

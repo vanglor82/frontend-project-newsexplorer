@@ -2,7 +2,7 @@
 import "./SearchResults.css";
 
 // assets imports
-import NotFoundImg from "../../assets/not-found_v1.png";
+import NotFoundImg from "../../assets/not-found_v1.svg";
 
 // component imports
 import Preloader from "../Preloader/Preloader";

@@ -8,8 +8,7 @@ import "./LoginModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 // assets imports
-import orSignUpImg from "../../assets/or Sign up.png";
-
+import orSignUpImg from "../../assets/or Sign up.svg";
 
 function LoginModal({
   isOpen,
@@ -85,6 +84,7 @@ function LoginModal({
           onChange={handleEmailChange}
           required
           autoComplete="username"
+          placeholder="Enter email"
         />
         {localError && (
           <span className="modal__error-login-email">{localError}</span>
@@ -100,6 +100,7 @@ function LoginModal({
           onChange={(e) => setForm({ ...form, password: e.target.value })}
           required
           autoComplete="current-password"
+          placeholder="Enter password"
         />
       </label>
       <button

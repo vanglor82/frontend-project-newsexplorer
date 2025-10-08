@@ -8,8 +8,8 @@ import "./SavedArticles.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 // assets imports
-import trashIcon from "../../assets/trash icon.png";
-import trashIconBlack from "../../assets/trash icon black.png";
+import trashIcon from "../../assets/TrashWhiteIcon.svg";
+import trashIconBlack from "../../assets/TrashBlackIcon.svg";
 
 function SavedArticles({ articles = [], onRemove }) {
   const currentUser = useContext(CurrentUserContext);
@@ -28,13 +28,13 @@ function SavedArticles({ articles = [], onRemove }) {
       <p className="saved__articles-keywords">
         By keywords:{" "}
         {topKeywords
-          .map((kw, i) => (
+          .map((kw) => (
             <span key={kw} className="saved__articles-keyword">
               {kw}
             </span>
           ))
           .reduce(
-            (prev, curr, i) =>
+            (prev, curr) =>
               prev === null ? (
                 curr
               ) : (
@@ -104,7 +104,9 @@ function SavedArticleCard({ article, onRemove }) {
           title="Remove from saved"
           onClick={onRemove}
         >
-          <span className="saved__articles-remove-tooltip">Remove from saved</span>
+          <span className="saved__articles-remove-tooltip">
+            Remove from saved
+          </span>
           <span className="saved__articles-remove-icon" />
         </button>
       </div>

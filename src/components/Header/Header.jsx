@@ -7,8 +7,8 @@ import Navigation from "../Navigation/Navigation";
 import "./Header.css";
 
 // assets imports
-import headerLogo from "../../assets/NewsExplorer.png";
-import headerLogoBlack from "../../assets/NewsExplorer Black.png";
+import headerLogo from "../../assets/NewsExplorerWhite.svg";
+import headerLogoBlack from "../../assets/NewsExplorerBlack.svg";
 
 function Header({
   isLoggedIn,
@@ -19,11 +19,11 @@ function Header({
   hideMenuBtn,
 }) {
   const location = useLocation();
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 767);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -32,30 +32,30 @@ function Header({
   return (
     <header
       className={`header${
-        location.pathname === "/saved-articles" ? " header_saved-articles" : ""
+        location.pathname === "/saved-news" ? " header_saved-articles" : ""
       }`}
     >
       <Link to="/">
         <img
           src={
-            location.pathname === "/saved-articles"
-              ? headerLogoBlack
-              : headerLogo
+            location.pathname === "/saved-news" ? headerLogoBlack : headerLogo
           }
           alt="News Explorer Logo"
           className="header__logo"
         />
       </Link>
-      <Navigation
-        isLoggedIn={isLoggedIn}
-        currentUser={currentUser}
-        onLoginClick={onLoginClick}
-        onLogout={onLogout}
-        onMenuClick={onMenuClick}
-        hideMenuBtn={hideMenuBtn}
-        isMobile={isMobile}
-        location={location}
-      />
+      <nav>
+        <Navigation
+          isLoggedIn={isLoggedIn}
+          currentUser={currentUser}
+          onLoginClick={onLoginClick}
+          onLogout={onLogout}
+          onMenuClick={onMenuClick}
+          hideMenuBtn={hideMenuBtn}
+          isMobile={isMobile}
+          location={location}
+        />
+      </nav>
     </header>
   );
 }

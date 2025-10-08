@@ -102,7 +102,7 @@ function App() {
     name: "",
   });
 
-  const handleLoginSubmit = ({ email, password }) => {
+  const handleLoginSubmit = ({ email }) => {
     setIsLoggedIn(true);
     setCurrentUser({ name: email.split("@")[0], email });
     setLoginForm({ email: "", password: "" });
@@ -117,7 +117,7 @@ function App() {
     navigate("/");
   };
 
-  const handleRegisterSubmit = ({ name, email, password }) => {
+  const handleRegisterSubmit = () => {
     setShowSuccessModal(true);
     setActiveModal("");
     setRegisterForm({ email: "", password: "", name: "" });
@@ -226,120 +226,55 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="app">
         <div className="app__content">
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <Header
-                    isLoggedIn={isLoggedIn}
-                    currentUser={currentUser}
-                    onLoginClick={handleLogin}
-                    onLogout={handleLogout}
-                    onRegisterClick={handleRegister}
-                    onMenuClick={handleHeaderMenuOpen}
-                    hideMenuBtn={!!activeModal}
-                  />
-                  <Main searchForm={<SearchForm onSearch={handleSearch} />} />
-                  {hasSearched && (
-                    <SearchResults
-                      onShowMore={handleShowMore}
-                      isLoading={isLoading}
-                      hasSearched={hasSearched}
-                    >
-                      {searchResults
-                        .slice(0, visibleCount)
-                        .map((article, idx) => (
-                          <SearchResultCard
-                            key={idx}
-                            title={article.title}
-                            image={article.urlToImage}
-                            date={article.publishedAt}
-                            description={article.description}
-                            source={article.source?.name}
-                            url={article.url}
-                            onSave={
-                              isLoggedIn
-                                ? () => handleSaveArticle(article)
-                                : undefined
-                            }
-                            isSaved={
-                              !!savedArticles.find((a) => a.url === article.url)
-                            }
-                            isLoggedIn={isLoggedIn}
-                          />
-                        ))}
-                    </SearchResults>
-                  )}
-                  <About />
-                  <Footer />
-                  <LoginModal
-                    isOpen={activeModal === "login"}
-                    onClose={closeModals}
-                    onLogin={handleLoginSubmit}
-                    onSwitchToRegister={handleRegister}
-                    form={loginForm}
-                    setForm={setLoginForm}
-                  />
-                  <RegisterModal
-                    isOpen={activeModal === "register"}
-                    onClose={closeModals}
-                    onRegister={handleRegisterSubmit}
-                    onSwitchToLogin={handleLogin}
-                    form={registerForm}
-                    setForm={setRegisterForm}
-                  />
-                  <SuccessModal
-                    isOpen={showSuccessModal}
-                    onClose={() => setShowSuccessModal(false)}
-                    onSignIn={() => {
-                      setShowSuccessModal(false);
-                      setActiveModal("login");
-                    }}
-                  />
-                  <HeaderMenuModal
-                    isOpen={isHeaderMenuOpen}
-                    onClose={handleHeaderMenuClose}
-                    onHome={() => {
-                      handleHeaderMenuClose();
-                      navigate("/");
-                    }}
-                    onSignIn={() => {
-                      handleHeaderMenuClose();
-                      setActiveModal("login");
-                    }}
-                    onSavedArticles={() => {
-                      handleHeaderMenuClose();
-                      navigate("/saved-articles");
-                    }}
-                    onLogout={() => {
-                      handleHeaderMenuClose();
-                      handleLogout();
-                    }}
-                    isLoggedIn={isLoggedIn}
-                  />
-                </>
-              }
-            />
-            <Route
-              path="/saved-articles"
-              element={
-                isLoggedIn ? (
+          <Header
+            isLoggedIn={isLoggedIn}
+            currentUser={currentUser}
+            onLoginClick={handleLogin}
+            onLogout={handleLogout}
+            onRegisterClick={handleRegister}
+            onMenuClick={handleHeaderMenuOpen}
+            hideMenuBtn={!!activeModal}
+          />
+          <main>
+            <Routes>
+              <Route
+                path="/"
+                element={
                   <>
-                    <Header
-                      isLoggedIn={isLoggedIn}
-                      currentUser={currentUser}
-                      onLoginClick={handleLogin}
-                      onLogout={handleLogout}
-                      onRegisterClick={handleRegister}
-                      onMenuClick={handleHeaderMenuOpen}
-                      hideMenuBtn={!!activeModal}
-                    />
-                    <SavedArticles
-                      articles={savedArticles}
-                      onRemove={handleRemoveArticle}
-                    />
-                    <Footer />
+                    <Main searchForm={<SearchForm onSearch={handleSearch} />} />
+                    {hasSearched && (
+                      <SearchResults
+                        onShowMore={handleShowMore}
+                        isLoading={isLoading}
+                        hasSearched={hasSearched}
+                      >
+                        {searchResults
+                          .slice(0, visibleCount)
+                          .map((article, idx) => (
+                            <SearchResultCard
+                              key={idx}
+                              title={article.title}
+                              image={article.urlToImage}
+                              date={article.publishedAt}
+                              description={article.description}
+                              source={article.source?.name}
+                              url={article.url}
+                              onSave={
+                                isLoggedIn
+                                  ? () => handleSaveArticle(article)
+                                  : undefined
+                              }
+                              isSaved={
+                                !!savedArticles.find(
+                                  (a) => a.url === article.url
+                                )
+                              }
+                              isLoggedIn={isLoggedIn}
+                            />
+                          ))}
+                      </SearchResults>
+                    )}
+                    <About />
                     <LoginModal
                       isOpen={activeModal === "login"}
                       onClose={closeModals}
@@ -352,9 +287,17 @@ function App() {
                       isOpen={activeModal === "register"}
                       onClose={closeModals}
                       onRegister={handleRegisterSubmit}
+                      onSwitchToLogin={handleLogin}
                       form={registerForm}
                       setForm={setRegisterForm}
-                      onSwitchToLogin={handleLogin}
+                    />
+                    <SuccessModal
+                      isOpen={showSuccessModal}
+                      onClose={() => setShowSuccessModal(false)}
+                      onSignIn={() => {
+                        setShowSuccessModal(false);
+                        setActiveModal("login");
+                      }}
                     />
                     <HeaderMenuModal
                       isOpen={isHeaderMenuOpen}
@@ -369,7 +312,7 @@ function App() {
                       }}
                       onSavedArticles={() => {
                         handleHeaderMenuClose();
-                        navigate("/saved-articles");
+                        navigate("/saved-news");
                       }}
                       onLogout={() => {
                         handleHeaderMenuClose();
@@ -378,12 +321,63 @@ function App() {
                       isLoggedIn={isLoggedIn}
                     />
                   </>
-                ) : (
-                  <Navigate to="/" replace />
-                )
-              }
-            />
-          </Routes>
+                }
+              />
+              <Route
+                path="/saved-news"
+                element={
+                  isLoggedIn ? (
+                    <>
+                      <SavedArticles
+                        articles={savedArticles}
+                        onRemove={handleRemoveArticle}
+                      />
+                      <LoginModal
+                        isOpen={activeModal === "login"}
+                        onClose={closeModals}
+                        onLogin={handleLoginSubmit}
+                        onSwitchToRegister={handleRegister}
+                        form={loginForm}
+                        setForm={setLoginForm}
+                      />
+                      <RegisterModal
+                        isOpen={activeModal === "register"}
+                        onClose={closeModals}
+                        onRegister={handleRegisterSubmit}
+                        form={registerForm}
+                        setForm={setRegisterForm}
+                        onSwitchToLogin={handleLogin}
+                      />
+                      <HeaderMenuModal
+                        isOpen={isHeaderMenuOpen}
+                        onClose={handleHeaderMenuClose}
+                        onHome={() => {
+                          handleHeaderMenuClose();
+                          navigate("/");
+                        }}
+                        onSignIn={() => {
+                          handleHeaderMenuClose();
+                          setActiveModal("login");
+                        }}
+                        onSavedArticles={() => {
+                          handleHeaderMenuClose();
+                          navigate("/saved-news");
+                        }}
+                        onLogout={() => {
+                          handleHeaderMenuClose();
+                          handleLogout();
+                        }}
+                        isLoggedIn={isLoggedIn}
+                      />
+                    </>
+                  ) : (
+                    <Navigate to="/" replace />
+                  )
+                }
+              />
+            </Routes>
+          </main>
+          <Footer />
         </div>
       </div>
     </CurrentUserContext.Provider>
