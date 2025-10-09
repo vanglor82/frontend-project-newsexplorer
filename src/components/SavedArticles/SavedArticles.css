@@ -199,6 +199,7 @@
   .saved__articles-title {
     font-size: 16px;
     padding: 24px 0 0 40px;
+    margin: 0;
   }
 
   .saved__articles-subtitle {
@@ -296,7 +297,7 @@
     overflow-y: auto;
   }
   .saved__articles-cards {
-    max-width: 320px;
+    width: 320px;
   }
 
   .saved__articles-card {
