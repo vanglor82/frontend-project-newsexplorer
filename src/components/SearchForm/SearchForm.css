@@ -9,17 +9,14 @@
   width: 100%;
   padding: 0 180px 0 24px;
   border-radius: 100px;
-  border: 1px solid #d1d2d6;
+  border: none;
   height: 64px;
   font-size: 16px;
   box-sizing: border-box;
-  color: #6b6b6b; 
-  transition: color 0.2s;
+  color: #1a1b22; 
 }
 
-/* When hovering over the search button, input text becomes solid black */
-.search__form-button-hover input[type="text"],
-.search__form-button-active input[type="text"] {
+.search__form:hover input::placeholder{
   color: #1a1b22;
 }
 
