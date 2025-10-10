@@ -83,6 +83,7 @@
   .main__title {
     max-width: 285px;
     font-size: 36px;
+    margin: 86px auto 16px auto;
   }
 
   .main__subtitle {
