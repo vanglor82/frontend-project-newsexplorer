@@ -13,10 +13,10 @@
   height: 64px;
   font-size: 16px;
   box-sizing: border-box;
-  color: #1a1b22; 
+  color: #1a1b22;
 }
 
-.search__form:hover input::placeholder{
+.search__form:hover input::placeholder {
   color: #1a1b22;
 }
 
