@@ -17,6 +17,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import SearchResults from "../SearchResults/SearchResults";
 import SearchResultCard from "../SearchResultCard/SearchResultCard";
 import { APIkey } from "../../utils/constants";
+import { getNewsData } from "../../utils/newsApi";
 import SavedArticles from "../SavedArticles/SavedArticles";
 import SuccessModal from "../SuccessModal/SuccessModal";
 import HeaderMenuModal from "../HeaderMenuModal/HeaderMenuModal";
@@ -153,15 +154,7 @@ function App() {
   const handleSearch = (query) => {
     setIsLoading(true);
     setHasSearched(true);
-    fetch(
-      `https://newsapi.org/v2/everything?q=${encodeURIComponent(
-        query
-      )}&apiKey=${APIkey}`
-    )
-      .then((response) => {
-        if (!response.ok) throw new Error("Network response was not ok");
-        return response.json();
-      })
+    getNewsData({ query }, APIkey)
       .then((data) => {
         setSearchResults(data.articles || []);
         try {
