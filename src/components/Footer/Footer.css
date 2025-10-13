@@ -1,0 +1,132 @@
+/* Footer styles */
+footer {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1440px;
+  justify-content: space-between;
+  padding: 0;
+  height: 80px;
+  background: #fff;
+  flex-wrap: wrap;
+}
+
+.footer__text {
+  font-size: 16px;
+  color: #b6bcbf;
+  margin-left: 104px;
+}
+
+.footer__button-grp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.footer__button-grp button {
+  background: none;
+  border: none;
+  cursor: url("../../assets/Cursor.svg"), pointer;
+  font-size: 18px;
+  color: #1a1b22;
+  padding: 0;
+  margin-right: 104px;
+}
+
+.footer__button-grp img {
+  width: 24px;
+  height: 24px;
+}
+
+.footer__button-grp a {
+  text-decoration: none;
+}
+
+.footer__home-btn {
+  margin-right: 40px !important;
+}
+
+.footer__tripleten-btn {
+  margin-right: 40px !important;
+}
+
+.footer__github-btn {
+  margin-right: 24px !important;
+}
+
+/* Responsive styles for Tablet */
+@media screen and (max-width: 1279px) {
+  footer {
+    max-width: 768px;
+    height: 64px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer__text {
+    font-size: 16px;
+    margin-left: 40px;
+  }
+
+  .footer__home-btn,
+  .footer__tripleten-btn {
+    margin-right: 40px;
+  }
+
+  .footer__button-grp {
+    margin-right: 40px;
+  }
+
+  .footer__button-grp button {
+    font-size: 18px;
+  }
+}
+
+/* Responsive styles for Mobile */
+@media screen and (max-width: 767px) {
+  footer {
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    max-width: 320px;
+    height: 176px;
+  }
+
+  .footer__text {
+    margin: 0;
+  }
+
+  .footer__button-grp {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px 16px 38px 16px;
+    width: 288px;
+  }
+
+  .footer__button-grp-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 74px;
+  }
+
+  /* Make the second column (GitHub/LinkedIn) a row in mobile view */
+  .footer__button-grp-col:nth-child(2) {
+    flex-direction: row;
+    align-items: center;
+    height: auto;
+  }
+
+  .footer__home-btn,
+  .footer__tripleten-btn {
+    width: 80px;
+    text-align: left;
+  }
+
+  .footer__github-btn,
+  .footer__linkedin-btn {
+    width: 32px;
+    align-self: flex-end;
+  }
+}

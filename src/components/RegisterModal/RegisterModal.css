@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "Inter", sans-serif;
+  src: url(../../vendor/fonts/inter-400-regular.woff2) format("woff2"),
+    url(../../vendor/fonts/inter-400-regular.woff) format("woff");
+}
+
+/* Error message styles */
+.modal__error_above {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  text-align: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.modal__error {
+  color: #ff0000;
+  font-size: 12px;
+  font-family: "Inter", Arial, sans-serif;
+  padding-top: 3px;
+  display: block;
+  text-align: center;
+}
+
+
+
